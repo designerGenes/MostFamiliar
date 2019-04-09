@@ -19,7 +19,6 @@ class ExamplesDataSource: NSObject, UITableViewDataSource {
     
     private let exampleThree = ExampleData(title: "Local storage", subtitle: "Download that dishwasher manual that keeps going missing, and store it so its never lost again", stinger: "Fix that", hexColorString: "#B8E986")
     
-    
     private let exampleFour = ExampleData(title: "Nested Navigation", subtitle: "Most apps are just navigation controllers nested within a tab bar controller.", stinger: "Get nesty", hexColorString: "#B8E986")
     
     private let exampleFive = ExampleData(title: "Endless tableview", subtitle: "In about 5 billion years, even the sun will end.  A tableview with many items can make load times seem more endless than that.  This tableview is fast!", stinger: "Be amazed", hexColorString: "#B8E986")
@@ -35,7 +34,7 @@ class ExamplesDataSource: NSObject, UITableViewDataSource {
         guard let typedCell = tableView.dequeueReusableCell(withIdentifier: "FamiliarExampleCell", for: indexPath) as? FamiliarExampleCell else {
             return UITableViewCell(frame: .zero)
         }
-        typedCell.loadExample(exampleData: examples[indexPath.row])
+        typedCell.loadExample(idx: indexPath.row, exampleData: examples[indexPath.row])
         return typedCell
     }
     
