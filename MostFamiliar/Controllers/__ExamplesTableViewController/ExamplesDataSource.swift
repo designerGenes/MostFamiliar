@@ -26,7 +26,7 @@ class ExamplesDataSource: NSObject, UITableViewDataSource {
         super.init()
         
         let exampleOne = ExampleData(title: "Side cabinet", subtitle: "There are never enough side cabinets", stinger: "Click here", hexColorString: "#9877B5", launchCallback: { vc in
-            
+            (vc as? ExamplesTableViewController)?.delegate?.setCabinetOpen(shouldOpen: true)
         })
         
         let exampleTwo = ExampleData(title: "Google Places", subtitle: "Convert user input into 1 of over 100,000,000 autosuggested Google addresses.", stinger: "Connect now", hexColorString: "#64B8ED", launchCallback: { vc in
