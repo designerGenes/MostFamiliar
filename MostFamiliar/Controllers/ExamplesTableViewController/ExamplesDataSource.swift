@@ -34,12 +34,16 @@ class ExamplesDataSource: NSObject, UITableViewDataSource {
         guard let typedCell = tableView.dequeueReusableCell(withIdentifier: "FamiliarExampleCell", for: indexPath) as? FamiliarExampleCell else {
             return UITableViewCell(frame: .zero)
         }
-        typedCell.loadExample(idx: indexPath.row, exampleData: examples[indexPath.row])
+        typedCell.loadExample(idx: indexPath.section, exampleData: examples[indexPath.section])
         return typedCell
     }
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return examples.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
 }

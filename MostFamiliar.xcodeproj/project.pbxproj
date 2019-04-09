@@ -21,6 +21,10 @@
 		FE163417225C11D8001B87E7 /* ExamplesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE163416225C11D8001B87E7 /* ExamplesTableViewController.xib */; };
 		FE16341A225C17F2001B87E7 /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE163419225C17F2001B87E7 /* ExampleData.swift */; };
 		FE16341D225C1884001B87E7 /* ExamplesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16341C225C1884001B87E7 /* ExamplesDataSource.swift */; };
+		FE163421225C22E0001B87E7 /* FilsonSoft-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE16341F225C22E0001B87E7 /* FilsonSoft-Bold.otf */; };
+		FE163422225C22E0001B87E7 /* FilsonSoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE163420225C22E0001B87E7 /* FilsonSoftRegular.otf */; };
+		FE163425225C2367001B87E7 /* UIFont+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE163424225C2367001B87E7 /* UIFont+Design.swift */; };
+		FE163427225C2397001B87E7 /* SanFranciscoDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE163426225C2397001B87E7 /* SanFranciscoDisplay-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		FE163416225C11D8001B87E7 /* ExamplesTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExamplesTableViewController.xib; sourceTree = "<group>"; };
 		FE163419225C17F2001B87E7 /* ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleData.swift; sourceTree = "<group>"; };
 		FE16341C225C1884001B87E7 /* ExamplesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesDataSource.swift; sourceTree = "<group>"; };
+		FE16341F225C22E0001B87E7 /* FilsonSoft-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FilsonSoft-Bold.otf"; sourceTree = "<group>"; };
+		FE163420225C22E0001B87E7 /* FilsonSoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FilsonSoftRegular.otf; sourceTree = "<group>"; };
+		FE163424225C2367001B87E7 /* UIFont+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Design.swift"; sourceTree = "<group>"; };
+		FE163426225C2397001B87E7 /* SanFranciscoDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +102,7 @@
 		FE1633F2225C0E73001B87E7 /* MostFamiliar */ = {
 			isa = PBXGroup;
 			children = (
+				FE163423225C2345001B87E7 /* Extensions */,
 				FE163418225C17E3001B87E7 /* Models */,
 				FE163407225C1073001B87E7 /* Views */,
 				FE1633F3225C0E73001B87E7 /* AppDelegate.swift */,
@@ -116,6 +125,7 @@
 		FE163406225C0F3E001B87E7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FE16341E225C229F001B87E7 /* Fonts */,
 				FE1633FA225C0E74001B87E7 /* Assets.xcassets */,
 				FE1633FC225C0E74001B87E7 /* LaunchScreen.storyboard */,
 			);
@@ -158,6 +168,24 @@
 				FE16341C225C1884001B87E7 /* ExamplesDataSource.swift */,
 			);
 			path = ExamplesTableViewController;
+			sourceTree = "<group>";
+		};
+		FE16341E225C229F001B87E7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FE163426225C2397001B87E7 /* SanFranciscoDisplay-Regular.otf */,
+				FE16341F225C22E0001B87E7 /* FilsonSoft-Bold.otf */,
+				FE163420225C22E0001B87E7 /* FilsonSoftRegular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FE163423225C2345001B87E7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FE163424225C2367001B87E7 /* UIFont+Design.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,7 +250,10 @@
 			files = (
 				FE1633FE225C0E74001B87E7 /* LaunchScreen.storyboard in Resources */,
 				FE1633FB225C0E74001B87E7 /* Assets.xcassets in Resources */,
+				FE163422225C22E0001B87E7 /* FilsonSoftRegular.otf in Resources */,
+				FE163427225C2397001B87E7 /* SanFranciscoDisplay-Regular.otf in Resources */,
 				FE163417225C11D8001B87E7 /* ExamplesTableViewController.xib in Resources */,
+				FE163421225C22E0001B87E7 /* FilsonSoft-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE163425225C2367001B87E7 /* UIFont+Design.swift in Sources */,
 				FE163410225C116C001B87E7 /* EndlessTableViewController.swift in Sources */,
 				FE1633F6225C0E73001B87E7 /* ExamplesTableViewController.swift in Sources */,
 				FE16340C225C1127001B87E7 /* SideCabinetExampleControlller.swift in Sources */,

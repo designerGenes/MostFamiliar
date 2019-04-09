@@ -15,50 +15,86 @@ class FamiliarExampleCell: UITableViewCell {
     private let subtitleLabel = UILabel()
     private let stingerLabel = UILabel()
     private let divider = UIView()
-    private let coloredCircle = UIView()
+    private let coloredRim = UIView()
     
     public func loadExample(idx: Int, exampleData: ExampleData) {
         indexLabel.text = "\(idx)"
         titleLabel.text = exampleData.title
         subtitleLabel.text = exampleData.subtitle
         stingerLabel.text = exampleData.stinger
-        coloredCircle.backgroundColor = UIColor(hexString: exampleData.hexColorString)
+        coloredRim.backgroundColor = UIColor(hexString: exampleData.hexColorString)
         
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        for view in [indexLabel, titleLabel, subtitleLabel, stingerLabel, divider, coloredCircle] {
+    private func addControls() {
+
+        for view in [coloredRim, indexLabel, titleLabel, subtitleLabel, stingerLabel, divider] {
             contentView.addSubview(view)
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        layer.masksToBounds = true
-        layer.cornerRadius = 50 // TMP!
-        layer.shadowOffset = CGSize(width: 5, height: 5)
-        layer.shadowOpacity = 1
+        // https://stackoverflow.com/questions/37645408/uitableviewcell-rounded-corners-and-shadow
+        backgroundColor = .clear
+        layer.masksToBounds = false
+        layer.shadowOpacity = 0.23
+        layer.shadowRadius = 4
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowColor = UIColor.black.cgColor
+        contentView.backgroundColor = .white
+        contentView.layer.cornerRadius = 16
         
-        layoutMargins = UIEdgeInsets(top: 16, left: 8, bottom: 16, right: 8)
+        layoutMargins = UIEdgeInsets(top: 32, left: 16, bottom: 32, right: 16)
         
         contentView.addConstraints([
-            coloredCircle.centerXAnchor.constraint(equalTo: contentView.leadingAnchor),
-            coloredCircle.centerYAnchor.constraint(equalTo: contentView.topAnchor),
-            coloredCircle.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
-            indexLabel.trailingAnchor.constraint(equalTo: coloredCircle.trailingAnchor),
-            indexLabel.topAnchor.constraint(equalTo: coloredCircle.centerYAnchor, constant: 8),
+            coloredRim.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            coloredRim.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            coloredRim.topAnchor.constraint(equalTo: contentView.topAnchor),
+            coloredRim.heightAnchor.constraint(equalToConstant: 60),
+            indexLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            indexLabel.centerYAnchor.constraint(equalTo: coloredRim.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.layoutMarginsGuide.centerYAnchor),
+            titleLabel.topAnchor.constraint(equalTo: coloredRim.bottomAnchor, constant: 16),
             divider.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             divider.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            divider.heightAnchor.constraint(equalToConstant: 2),
             subtitleLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
             subtitleLabel.topAnchor.constraint(equalTo: divider.bottomAnchor, constant: 4),
             stingerLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
-            stingerLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 4),
-            contentView.bottomAnchor.constraint(equalTo: stingerLabel.bottomAnchor, constant: 16)
+            stingerLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 24),
+            contentView.bottomAnchor.constraint(equalTo: stingerLabel.bottomAnchor, constant: 32)
             ])
+        
+        for widthLimitedView in [titleLabel, divider, subtitleLabel] {
+            widthLimitedView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
+        }
+        
+        for multilineLabel in [titleLabel, subtitleLabel] {
+            multilineLabel.numberOfLines = 0
+        }
+        
+        titleLabel.font = UIFont.filsonSoftBold(size: 24)
+        subtitleLabel.font = UIFont.sfDisplayRegular(size: 14)
+        indexLabel.font = UIFont.filsonSoftBold(size: 32)
+        stingerLabel.font = UIFont.filsonSoftRegular(size: 22)
+        indexLabel.textColor = .white
+        indexLabel.textAlignment = .left
+        divider.backgroundColor = .black
+        
+        divider.layer.cornerRadius = 3
+        divider.layer.masksToBounds = true
         
     }
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addControls()
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        addControls()
+    }
     
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -20,19 +20,45 @@ class ExamplesTableViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = dataSource
+        tableView.register(FamiliarExampleCell.self, forCellReuseIdentifier: "FamiliarExampleCell")
+        tableView.showsVerticalScrollIndicator = false
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        SwiftSpinner.show("loading...")
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            SwiftSpinner.hide()
-        })
+
     }
 
     
     // MARK: - UITableViewDelegate methods
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.contentView.layer.masksToBounds = true
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 400
+    }
 }
 
