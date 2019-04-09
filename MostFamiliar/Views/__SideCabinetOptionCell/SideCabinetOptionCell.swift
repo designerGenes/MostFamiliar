@@ -15,41 +15,62 @@ class SideCabinetOptionCell: UITableViewCell {
     private var icon: UIImageView = UIImageView()
     private var titleLabel = UILabel()
     private var optionData: SideCabinetOption?
+    private var position: Int = 0
+    private var xConstraint: NSLayoutConstraint?
+    private var titleLabelDistConstraint: NSLayoutConstraint?
     
     public func getReaction() -> (() -> Void)? {
         return optionData?.reaction
     }
     
-    public func loadData(optionData: SideCabinetOption) {
+    public func loadData(optionData: SideCabinetOption, position: Int) {
         self.optionData = optionData
         icon.image = UIImage(named: optionData.assetName)
         titleLabel.text = optionData.title
+        
+        self.position = position
+        xConstraint?.constant = -60 * (CGFloat(position) * 0.25)
+        titleLabelDistConstraint?.constant = -60 - xConstraint!.constant
     }
     
     private func buildCell() {
-        for view in [shellView, icon, titleLabel] {
+        selectionStyle = .none
+        let shellInnerView = UIView()
+        for view in [shellView, icon, titleLabel, shellInnerView] {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         
         contentView.addSubview(shellView)
-        shellView.addSubview(icon)
-        shellView.addSubview(titleLabel)
-        shellView.layer.shadowOpacity = 0.45
-        shellView.layer.shadowOffset = CGSize(width: 5, height: 3)
-        shellView.backgroundColor = .brightRed()
+        shellView.coverSelfEntirely(with: shellInnerView)
+        shellInnerView.addSubview(icon)
+        shellInnerView.addSubview(titleLabel)
+        shellInnerView.layer.masksToBounds = true
+        shellInnerView.layer.cornerRadius = 10
+        shellInnerView.backgroundColor = UIColor.darkPurple().lighten(byPercentage: 0.3)
+        shellView.backgroundColor = .clear
+        backgroundColor = .clear
+    
         
         titleLabel.font = UIFont.sfProDisplayBold(size: 32)
-        titleLabel.textAlignment = .left
+        titleLabel.textColor = .white
+        titleLabel.textAlignment = .right
         
         contentView.addConstraints([
-            shellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             shellView.topAnchor.constraint(equalTo: contentView.topAnchor),
             shellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            icon.trailingAnchor.constraint(equalTo: shellView.layoutMarginsGuide.trailingAnchor),
-            icon.centerYAnchor.constraint(equalTo: shellView.centerYAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: icon.trailingAnchor, constant: 16),
-            titleLabel.centerYAnchor.constraint(equalTo: shellView.centerYAnchor),
+            shellView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
+            icon.trailingAnchor.constraint(equalTo: shellInnerView.trailingAnchor, constant: -16),
+            icon.centerYAnchor.constraint(equalTo: shellInnerView.centerYAnchor),
+            icon.heightAnchor.constraint(equalTo: shellInnerView.layoutMarginsGuide.heightAnchor, multiplier: 0.65),
+            icon.widthAnchor.constraint(equalTo: icon.heightAnchor),
+            
+            titleLabel.centerYAnchor.constraint(equalTo: shellInnerView.centerYAnchor),
             ])
+        
+        titleLabelDistConstraint = titleLabel.trailingAnchor.constraint(equalTo: icon.leadingAnchor)
+        titleLabelDistConstraint?.isActive = true
+        xConstraint = shellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        xConstraint?.isActive = true
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

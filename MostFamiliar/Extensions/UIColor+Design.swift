@@ -16,4 +16,5 @@ extension UIColor {
     class func limeGreen() -> UIColor { return UIColor(hexString: "#B8E986") }
     class func lightPurple() -> UIColor { return UIColor(hexString: "#9877B5") }
     class func bgroundGray() -> UIColor { return UIColor(hexString: "#F7F7F7") }
+    class func skyBlue() -> UIColor { return UIColor(hexString: "#5EAEDF") }
 }

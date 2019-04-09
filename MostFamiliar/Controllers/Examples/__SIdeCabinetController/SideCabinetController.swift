@@ -15,7 +15,6 @@ class SideCabinetController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private let tableView = UITableView()
-    private let titleLabel = UILabel()
     private var data = [SideCabinetOption]()
     public weak var delegate: HostsSideCabinet?
     public var state: CabinetState = .closed
@@ -28,26 +27,19 @@ class SideCabinetController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
 
         fakeBgroundView.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        fakeBgroundView.backgroundColor = .white
         
-        titleLabel.font = UIFont.sfProDisplayBold(size: 16)
-        titleLabel.text = "V0.0.1"
-        titleLabel.font = titleLabel.font.withSize(32)
-        
+        fakeBgroundView.backgroundColor = .darkPurple()
 
         view.layoutMargins = UIEdgeInsets(top: 32, left: 16, bottom: 0, right: 0)
         
         data = [
             ("close", "heart", { self.delegate?.setCabinetOpen(shouldOpen: false) }),
-            ("un-open", "roundedArrowRect", { self.delegate?.setCabinetOpen(shouldOpen: false) }),
+            ("renew", "roundedArrowRect", { self.delegate?.setCabinetOpen(shouldOpen: false) }),
             ("about", "star", { self.delegate?.setCabinetOpen(shouldOpen: false) }),
         ]
         
         view.addSubview(fakeBgroundView)
-        
         view.addSubview(tableView)
-        view.addSubview(titleLabel)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -64,13 +56,11 @@ class SideCabinetController: UIViewController, UITableViewDelegate, UITableViewD
             fakeBgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             fakeBgroundView.topAnchor.constraint(equalTo: view.topAnchor),
             fakeBgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            fakeBgroundView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -8),
+            fakeBgroundView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -48),
             tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -64),
             tableView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -8),
+            tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
             ])
     }
     
@@ -80,7 +70,7 @@ class SideCabinetController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OptionCell", for: indexPath) as! SideCabinetOptionCell
-        cell.loadData(optionData: data[indexPath.section])
+        cell.loadData(optionData: data[indexPath.section], position: indexPath.section)
         return cell
     }
     
@@ -97,7 +87,7 @@ class SideCabinetController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 64
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -107,7 +97,7 @@ class SideCabinetController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 24
     }
     
     @objc private func didSwipe(sender: UIPanGestureRecognizer) {
