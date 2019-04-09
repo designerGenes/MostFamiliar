@@ -1,5 +1,5 @@
 //
-//  SideCabinetExampleControlller.swift
+//  SideCabinetExampleController.swift
 //  MostFamiliar
 //
 //  Created by Jaden Nation on 4/8/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SideCabinetExampleControlller: UIViewController {
+class SideCabinetExampleController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

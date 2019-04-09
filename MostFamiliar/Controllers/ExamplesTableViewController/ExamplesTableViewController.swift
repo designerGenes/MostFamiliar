@@ -32,7 +32,11 @@ class ExamplesTableViewController: UIViewController, UITableViewDelegate {
     
     // MARK: - UITableViewDelegate methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+        guard let data = dataSource.getData(for: indexPath.section) else {
+            return
+        }
+        data.launchCallback?(self)
+        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

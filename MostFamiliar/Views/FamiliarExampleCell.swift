@@ -33,7 +33,7 @@ class FamiliarExampleCell: UITableViewCell {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        // https://stackoverflow.com/questions/37645408/uitableviewcell-rounded-corners-and-shadow
+        selectionStyle = .none
         backgroundColor = .clear
         layer.masksToBounds = false
         layer.shadowOpacity = 0.23
@@ -60,8 +60,8 @@ class FamiliarExampleCell: UITableViewCell {
             subtitleLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
             subtitleLabel.topAnchor.constraint(equalTo: divider.bottomAnchor, constant: 4),
             stingerLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
-            stingerLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 24),
-            contentView.bottomAnchor.constraint(equalTo: stingerLabel.bottomAnchor, constant: 32)
+            stingerLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 32),
+            contentView.layoutMarginsGuide.bottomAnchor.constraint(equalTo: stingerLabel.bottomAnchor, constant: 32)
             ])
         
         for widthLimitedView in [titleLabel, divider, subtitleLabel] {
@@ -75,7 +75,7 @@ class FamiliarExampleCell: UITableViewCell {
         titleLabel.font = UIFont.filsonSoftBold(size: 24)
         subtitleLabel.font = UIFont.sfDisplayRegular(size: 14)
         indexLabel.font = UIFont.filsonSoftBold(size: 32)
-        stingerLabel.font = UIFont.filsonSoftRegular(size: 22)
+        stingerLabel.font = UIFont.sfDisplayRegular(size: 22)
         indexLabel.textColor = .white
         indexLabel.textAlignment = .left
         divider.backgroundColor = .black

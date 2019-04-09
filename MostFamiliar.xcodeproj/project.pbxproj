@@ -13,7 +13,7 @@
 		FE1633FB225C0E74001B87E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE1633FA225C0E74001B87E7 /* Assets.xcassets */; };
 		FE1633FE225C0E74001B87E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE1633FC225C0E74001B87E7 /* LaunchScreen.storyboard */; };
 		FE163409225C108E001B87E7 /* FamiliarExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE163408225C108E001B87E7 /* FamiliarExampleCell.swift */; };
-		FE16340C225C1127001B87E7 /* SideCabinetExampleControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16340B225C1127001B87E7 /* SideCabinetExampleControlller.swift */; };
+		FE16340C225C1127001B87E7 /* SideCabinetExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16340B225C1127001B87E7 /* SideCabinetExampleController.swift */; };
 		FE16340E225C1159001B87E7 /* NestedNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16340D225C1159001B87E7 /* NestedNavigationViewController.swift */; };
 		FE163410225C116C001B87E7 /* EndlessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16340F225C116C001B87E7 /* EndlessTableViewController.swift */; };
 		FE163412225C1180001B87E7 /* GooglePlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE163411225C1180001B87E7 /* GooglePlacesViewController.swift */; };
@@ -38,7 +38,7 @@
 		FE1633FD225C0E74001B87E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE1633FF225C0E74001B87E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE163408225C108E001B87E7 /* FamiliarExampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamiliarExampleCell.swift; sourceTree = "<group>"; };
-		FE16340B225C1127001B87E7 /* SideCabinetExampleControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideCabinetExampleControlller.swift; sourceTree = "<group>"; };
+		FE16340B225C1127001B87E7 /* SideCabinetExampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideCabinetExampleController.swift; sourceTree = "<group>"; };
 		FE16340D225C1159001B87E7 /* NestedNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedNavigationViewController.swift; sourceTree = "<group>"; };
 		FE16340F225C116C001B87E7 /* EndlessTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndlessTableViewController.swift; sourceTree = "<group>"; };
 		FE163411225C1180001B87E7 /* GooglePlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 		FE16340A225C109F001B87E7 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				FE16340B225C1127001B87E7 /* SideCabinetExampleControlller.swift */,
+				FE16340B225C1127001B87E7 /* SideCabinetExampleController.swift */,
 				FE16340D225C1159001B87E7 /* NestedNavigationViewController.swift */,
 				FE16340F225C116C001B87E7 /* EndlessTableViewController.swift */,
 				FE163411225C1180001B87E7 /* GooglePlacesViewController.swift */,
@@ -310,7 +310,7 @@
 				FE163425225C2367001B87E7 /* UIFont+Design.swift in Sources */,
 				FE163410225C116C001B87E7 /* EndlessTableViewController.swift in Sources */,
 				FE1633F6225C0E73001B87E7 /* ExamplesTableViewController.swift in Sources */,
-				FE16340C225C1127001B87E7 /* SideCabinetExampleControlller.swift in Sources */,
+				FE16340C225C1127001B87E7 /* SideCabinetExampleController.swift in Sources */,
 				FE163409225C108E001B87E7 /* FamiliarExampleCell.swift in Sources */,
 				FE163414225C118F001B87E7 /* LocalStorageViewController.swift in Sources */,
 				FE16340E225C1159001B87E7 /* NestedNavigationViewController.swift in Sources */,
