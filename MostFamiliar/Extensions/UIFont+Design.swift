@@ -20,4 +20,8 @@ extension UIFont {
     class func sfDisplayRegular(size: CGFloat) -> UIFont {
         return UIFont(name: "SanFranciscoDisplay-Regular", size: size)!
     }
+    
+    class func sfProDisplayBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "SFProText-Bold", size: size)!
+    }
 }

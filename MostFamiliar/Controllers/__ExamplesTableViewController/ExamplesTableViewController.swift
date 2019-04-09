@@ -9,7 +9,7 @@
 import UIKit
 import SwiftSpinner
 
-class ExamplesTableViewController: UIViewController, UITableViewDelegate {
+class ExamplesTableViewController: UIViewController, UITableViewDelegate, SideCabinetHostDelegate {
     private let dataSource = ExamplesDataSource()
     weak public var delegate: HostsSideCabinet?
     
@@ -27,28 +27,14 @@ class ExamplesTableViewController: UIViewController, UITableViewDelegate {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "hamburgerMenu"), style: .plain, target: self, action: #selector(clickedOpenHamburgerMenu(sender:)))
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-    }
-    
     @objc private func clickedOpenHamburgerMenu(sender: UIBarButtonItem) {
-        animateSideCabinet(shouldOpen: true)
-    }
-    
-    
-    private func animateSideCabinet(shouldOpen: Bool) {
-        delegate?.toggleCabinetOpen()
+        delegate?.setCabinetOpen(shouldOpen: true)
     }
 
     
     // MARK: - UITableViewDelegate methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let data = dataSource.getData(for: indexPath.section) else {
-            return
-        }
-        data.launchCallback?(self)
-        
+        dataSource.getData(for: indexPath.section)?.launchCallback?(self)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -75,6 +61,11 @@ class ExamplesTableViewController: UIViewController, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 400
+    }
+    
+    // MARK: - SideCabinetHostDelegate methods
+    func didSetCabinetOpen(cabinetHost: HostsSideCabinet, isOpen: Bool) {
+        //
     }
 }
 
