@@ -13,7 +13,7 @@
 		FE1633FB225C0E74001B87E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE1633FA225C0E74001B87E7 /* Assets.xcassets */; };
 		FE1633FE225C0E74001B87E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE1633FC225C0E74001B87E7 /* LaunchScreen.storyboard */; };
 		FE163409225C108E001B87E7 /* FamiliarExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE163408225C108E001B87E7 /* FamiliarExampleCell.swift */; };
-		FE16340C225C1127001B87E7 /* SideCabinetExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16340B225C1127001B87E7 /* SideCabinetExampleController.swift */; };
+		FE16340C225C1127001B87E7 /* SideCabinetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16340B225C1127001B87E7 /* SideCabinetController.swift */; };
 		FE16340E225C1159001B87E7 /* NestedNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16340D225C1159001B87E7 /* NestedNavigationViewController.swift */; };
 		FE163410225C116C001B87E7 /* EndlessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16340F225C116C001B87E7 /* EndlessTableViewController.swift */; };
 		FE163412225C1180001B87E7 /* GooglePlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE163411225C1180001B87E7 /* GooglePlacesViewController.swift */; };
@@ -25,6 +25,9 @@
 		FE163422225C22E0001B87E7 /* FilsonSoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE163420225C22E0001B87E7 /* FilsonSoftRegular.otf */; };
 		FE163425225C2367001B87E7 /* UIFont+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE163424225C2367001B87E7 /* UIFont+Design.swift */; };
 		FE163427225C2397001B87E7 /* SanFranciscoDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE163426225C2397001B87E7 /* SanFranciscoDisplay-Regular.otf */; };
+		FE163429225D031C001B87E7 /* UIView+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE163428225D031B001B87E7 /* UIView+Convenience.swift */; };
+		FE16342B225D1483001B87E7 /* SpineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16342A225D1483001B87E7 /* SpineViewController.swift */; };
+		FE16342F225D21DF001B87E7 /* UIColor+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16342E225D21DF001B87E7 /* UIColor+Design.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +41,7 @@
 		FE1633FD225C0E74001B87E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE1633FF225C0E74001B87E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE163408225C108E001B87E7 /* FamiliarExampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamiliarExampleCell.swift; sourceTree = "<group>"; };
-		FE16340B225C1127001B87E7 /* SideCabinetExampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideCabinetExampleController.swift; sourceTree = "<group>"; };
+		FE16340B225C1127001B87E7 /* SideCabinetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideCabinetController.swift; sourceTree = "<group>"; };
 		FE16340D225C1159001B87E7 /* NestedNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedNavigationViewController.swift; sourceTree = "<group>"; };
 		FE16340F225C116C001B87E7 /* EndlessTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndlessTableViewController.swift; sourceTree = "<group>"; };
 		FE163411225C1180001B87E7 /* GooglePlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +53,9 @@
 		FE163420225C22E0001B87E7 /* FilsonSoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FilsonSoftRegular.otf; sourceTree = "<group>"; };
 		FE163424225C2367001B87E7 /* UIFont+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Design.swift"; sourceTree = "<group>"; };
 		FE163426225C2397001B87E7 /* SanFranciscoDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Regular.otf"; sourceTree = "<group>"; };
+		FE163428225D031B001B87E7 /* UIView+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Convenience.swift"; sourceTree = "<group>"; };
+		FE16342A225D1483001B87E7 /* SpineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpineViewController.swift; sourceTree = "<group>"; };
+		FE16342E225D21DF001B87E7 /* UIColor+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Design.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				FE16340A225C109F001B87E7 /* Examples */,
-				FE16341B225C1875001B87E7 /* ExamplesTableViewController */,
+				FE16341B225C1875001B87E7 /* __ExamplesTableViewController */,
+				FE16342C225D14D9001B87E7 /* __SpineViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -143,7 +150,7 @@
 		FE16340A225C109F001B87E7 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				FE16340B225C1127001B87E7 /* SideCabinetExampleController.swift */,
+				FE16342D225D1B77001B87E7 /* __SIdeCabinetController */,
 				FE16340D225C1159001B87E7 /* NestedNavigationViewController.swift */,
 				FE16340F225C116C001B87E7 /* EndlessTableViewController.swift */,
 				FE163411225C1180001B87E7 /* GooglePlacesViewController.swift */,
@@ -160,14 +167,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		FE16341B225C1875001B87E7 /* ExamplesTableViewController */ = {
+		FE16341B225C1875001B87E7 /* __ExamplesTableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				FE163416225C11D8001B87E7 /* ExamplesTableViewController.xib */,
 				FE1633F5225C0E73001B87E7 /* ExamplesTableViewController.swift */,
 				FE16341C225C1884001B87E7 /* ExamplesDataSource.swift */,
 			);
-			path = ExamplesTableViewController;
+			path = __ExamplesTableViewController;
 			sourceTree = "<group>";
 		};
 		FE16341E225C229F001B87E7 /* Fonts */ = {
@@ -183,9 +190,27 @@
 		FE163423225C2345001B87E7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FE163428225D031B001B87E7 /* UIView+Convenience.swift */,
+				FE16342E225D21DF001B87E7 /* UIColor+Design.swift */,
 				FE163424225C2367001B87E7 /* UIFont+Design.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FE16342C225D14D9001B87E7 /* __SpineViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FE16342A225D1483001B87E7 /* SpineViewController.swift */,
+			);
+			path = __SpineViewController;
+			sourceTree = "<group>";
+		};
+		FE16342D225D1B77001B87E7 /* __SIdeCabinetController */ = {
+			isa = PBXGroup;
+			children = (
+				FE16340B225C1127001B87E7 /* SideCabinetController.swift */,
+			);
+			path = __SIdeCabinetController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,14 +335,17 @@
 				FE163425225C2367001B87E7 /* UIFont+Design.swift in Sources */,
 				FE163410225C116C001B87E7 /* EndlessTableViewController.swift in Sources */,
 				FE1633F6225C0E73001B87E7 /* ExamplesTableViewController.swift in Sources */,
-				FE16340C225C1127001B87E7 /* SideCabinetExampleController.swift in Sources */,
+				FE16340C225C1127001B87E7 /* SideCabinetController.swift in Sources */,
+				FE16342B225D1483001B87E7 /* SpineViewController.swift in Sources */,
 				FE163409225C108E001B87E7 /* FamiliarExampleCell.swift in Sources */,
 				FE163414225C118F001B87E7 /* LocalStorageViewController.swift in Sources */,
 				FE16340E225C1159001B87E7 /* NestedNavigationViewController.swift in Sources */,
 				FE1633F4225C0E73001B87E7 /* AppDelegate.swift in Sources */,
+				FE163429225D031C001B87E7 /* UIView+Convenience.swift in Sources */,
 				FE16341D225C1884001B87E7 /* ExamplesDataSource.swift in Sources */,
 				FE163412225C1180001B87E7 /* GooglePlacesViewController.swift in Sources */,
 				FE16341A225C17F2001B87E7 /* ExampleData.swift in Sources */,
+				FE16342F225D21DF001B87E7 /* UIColor+Design.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@ import SwiftSpinner
 
 class ExamplesTableViewController: UIViewController, UITableViewDelegate {
     private let dataSource = ExamplesDataSource()
+    weak public var delegate: HostsSideCabinet?
     
     // MARK: - outlets
     @IBOutlet weak var tableView: UITableView!
@@ -22,11 +23,22 @@ class ExamplesTableViewController: UIViewController, UITableViewDelegate {
         tableView.dataSource = dataSource
         tableView.register(FamiliarExampleCell.self, forCellReuseIdentifier: "FamiliarExampleCell")
         tableView.showsVerticalScrollIndicator = false
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "hamburgerMenu"), style: .plain, target: self, action: #selector(clickedOpenHamburgerMenu(sender:)))
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+    }
+    
+    @objc private func clickedOpenHamburgerMenu(sender: UIBarButtonItem) {
+        animateSideCabinet(shouldOpen: true)
+    }
+    
+    
+    private func animateSideCabinet(shouldOpen: Bool) {
+        delegate?.toggleCabinetOpen()
     }
 
     

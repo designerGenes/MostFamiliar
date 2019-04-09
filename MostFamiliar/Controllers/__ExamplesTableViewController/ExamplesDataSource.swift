@@ -52,7 +52,7 @@ class ExamplesDataSource: NSObject, UITableViewDataSource {
         guard let typedCell = tableView.dequeueReusableCell(withIdentifier: "FamiliarExampleCell", for: indexPath) as? FamiliarExampleCell else {
             return UITableViewCell(frame: .zero)
         }
-        typedCell.loadExample(idx: indexPath.section, exampleData: examples[indexPath.section])
+        typedCell.loadExample(idx: indexPath.section + 1, exampleData: examples[indexPath.section])
         return typedCell
     }
     

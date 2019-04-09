@@ -33,6 +33,19 @@ class FamiliarExampleCell: UITableViewCell {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         
+        let topRimOfColoredRim = UIView()
+        coloredRim.addSubview(topRimOfColoredRim)
+        coloredRim.layer.masksToBounds = true
+        topRimOfColoredRim.translatesAutoresizingMaskIntoConstraints = false
+        topRimOfColoredRim.backgroundColor = UIColor.white.withAlphaComponent(0.14)
+        coloredRim.addConstraints([
+            topRimOfColoredRim.topAnchor.constraint(equalTo: coloredRim.topAnchor),
+            topRimOfColoredRim.widthAnchor.constraint(equalTo: coloredRim.widthAnchor),
+            topRimOfColoredRim.heightAnchor.constraint(equalToConstant: 8),
+            ])
+        
+        
+        
         selectionStyle = .none
         backgroundColor = .clear
         layer.masksToBounds = false
@@ -51,7 +64,7 @@ class FamiliarExampleCell: UITableViewCell {
             coloredRim.topAnchor.constraint(equalTo: contentView.topAnchor),
             coloredRim.heightAnchor.constraint(equalToConstant: 60),
             indexLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
-            indexLabel.centerYAnchor.constraint(equalTo: coloredRim.centerYAnchor),
+            indexLabel.centerYAnchor.constraint(equalTo: coloredRim.centerYAnchor, constant: 8),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
             titleLabel.topAnchor.constraint(equalTo: coloredRim.bottomAnchor, constant: 16),
             divider.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),

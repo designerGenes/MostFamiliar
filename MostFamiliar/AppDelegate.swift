@@ -16,10 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        if let examplesVC = Bundle.main.loadNibNamed("ExamplesTableViewController", owner: self, options: nil)?.first as? ExamplesTableViewController {
-            window?.rootViewController = UINavigationController(rootViewController: examplesVC)
-            window?.makeKeyAndVisible()
-        }
+        window?.rootViewController = SpineViewController()
+        window?.makeKeyAndVisible()
         return true
     }
 
