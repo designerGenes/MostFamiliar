@@ -25,6 +25,8 @@ class ExamplesTableViewController: UIViewController, UITableViewDelegate, SideCa
         tableView.showsVerticalScrollIndicator = false
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "hamburgerMenu"), style: .plain, target: self, action: #selector(clickedOpenHamburgerMenu(sender:)))
+        navigationItem.rightBarButtonItem?.tintColor = .darkPurple()
+        navigationItem.backBarButtonItem?.tintColor = .darkPurple()
     }
 
     @objc private func clickedOpenHamburgerMenu(sender: UIBarButtonItem) {
