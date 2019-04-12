@@ -12,22 +12,58 @@ class CollectionContainingExampleData: ExampleData {
     // used for type recognition
 }
 
-class FamiliarExampleCollectionContainingTableCell: FamiliarExampleCell, UICollectionViewDataSource, UICollectionViewDelegate {
+// CONTAINS a collection view full of cells
+
+class FamiliarExampleCollectionContainingTableCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    private let collectionView = UICollectionView()
+    private var collectionView: UICollectionView!
+    private var baseCoord: IntCoord = (0, 0) // bad code I know
     private var data = [ExampleData(title: "CollectionView within cell", subtitle: "Cells that go sideways and sideways and sideways.", stinger: "Swipe swipe", hexColorString: "#db5461")]
+    
+    func loadCoord(coord: IntCoord) {
+        baseCoord = coord
+    }
+    
+    // MARK: - UICollectionViewFlowDelegate methods
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+    
     
     // MARK: - UICollectionViewDataSource methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FamiliarExampleCollectionViewCell", for: indexPath) as! FamiliarExampleCollectionViewCell
-        cell.loadData(idx: indexPath.row, exampleData: data[indexPath.row])
+        cell.loadExample(coord: (indexPath.section, baseCoord.y), exampleData: data[indexPath.section])
         return cell
     }
 
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addControls()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        addControls()
+    }
     
     private func generateData(generatedRowCount: Int = 4) {
         if data.count > 1 {
@@ -49,12 +85,30 @@ class FamiliarExampleCollectionContainingTableCell: FamiliarExampleCell, UIColle
     }
 
     
-    override func addControls() {
-        generateData()
-        contentView.addSubview(collectionView)
+    
+    func addControls() {
+        generateData(generatedRowCount: 3)
+        let flowLayout = UICollectionViewFlowLayout.init()
+        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        flowLayout.scrollDirection = .horizontal
+        
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: FamiliarExampleCell.baseHeight), collectionViewLayout: flowLayout)
+        collectionView.contentSize = CGSize(width: 20000, height: 2000)
+        collectionView.showsHorizontalScrollIndicator = false
+        
+        coverSelfEntirely(with: collectionView, obeyMargins: true, allowVerticalExtensionDown: true)
+        collectionView.heightAnchor.constraint(equalToConstant: FamiliarExampleCell.baseHeight).isActive = true
         collectionView.register(FamiliarExampleCollectionViewCell.self, forCellWithReuseIdentifier: "FamiliarExampleCollectionViewCell")
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.backgroundColor = .clear
+        selectionStyle = .none
+        backgroundColor = .clear
+        layer.masksToBounds = false
+        layer.shadowOpacity = 0.23
+        layer.shadowRadius = 4
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowColor = UIColor.black.cgColor
         
     }
 

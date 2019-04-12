@@ -46,7 +46,7 @@ public extension UIView {
         subview.centerYAnchor.constraint(equalTo: centerYAnchor, constant: offset.y).isActive = true
     }
 	
-    func coverSelfEntirely(with subview: UIView, obeyMargins: Bool = true) {
+    func coverSelfEntirely(with subview: UIView, obeyMargins: Bool = true, allowVerticalExtensionDown: Bool = false) {
         if subviews.contains(subview) {
             bringSubviewToFront(subview)
         } else {
@@ -57,8 +57,12 @@ public extension UIView {
             subview.leadingAnchor.constraint(equalTo: obeyMargins ? layoutMarginsGuide.leadingAnchor : leadingAnchor),
             subview.trailingAnchor.constraint(equalTo: obeyMargins ? layoutMarginsGuide.trailingAnchor : trailingAnchor),
             subview.topAnchor.constraint(equalTo: obeyMargins ? layoutMarginsGuide.topAnchor : topAnchor),
-            subview.bottomAnchor.constraint(equalTo: obeyMargins ? layoutMarginsGuide.bottomAnchor : bottomAnchor),
             ])
-		layoutIfNeeded()
+        if allowVerticalExtensionDown {
+            subview.bottomAnchor.constraint(lessThanOrEqualTo: obeyMargins ? layoutMarginsGuide.bottomAnchor : bottomAnchor).isActive = true
+        } else {
+            subview.bottomAnchor.constraint(equalTo: obeyMargins ? layoutMarginsGuide.bottomAnchor : bottomAnchor).isActive = true
+        }
+        
 	}
 }

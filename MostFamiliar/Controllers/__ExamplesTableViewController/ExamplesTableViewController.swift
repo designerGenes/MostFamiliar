@@ -24,8 +24,6 @@ class ExamplesTableViewController: UIViewController, UITableViewDelegate, SideCa
         tableView.register(FamiliarExampleCell.self, forCellReuseIdentifier: "FamiliarExampleCell")
         tableView.register(FamiliarExampleCollectionContainingTableCell.self, forCellReuseIdentifier: "FamiliarExampleCollectionContainingTableCell")
         tableView.showsVerticalScrollIndicator = false
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 55.0
         
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "hamburgerMenu"), style: .plain, target: self, action: #selector(clickedOpenHamburgerMenu(sender:)))
@@ -51,6 +49,10 @@ class ExamplesTableViewController: UIViewController, UITableViewDelegate, SideCa
         return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return FamiliarExampleCell.baseHeight
+    }
+    
     func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
         return false
     }
@@ -62,12 +64,9 @@ class ExamplesTableViewController: UIViewController, UITableViewDelegate, SideCa
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        return 56
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
     
     // MARK: - SideCabinetHostDelegate methods
     func didSetCabinetOpen(cabinetHost: HostsSideCabinet, isOpen: Bool) {
