@@ -46,27 +46,23 @@ public extension UIView {
         subview.centerYAnchor.constraint(equalTo: centerYAnchor, constant: offset.y).isActive = true
     }
 	
-	func coverSelfEntirely(with subview: UIView, useAsOverlay: Bool = false, withInset percentInset: CGPoint = CGPoint.zero) {
-		let xInset = frame.width * percentInset.x
-		let yInset = frame.height * percentInset.y
-		
-		if useAsOverlay {
-			if let superview = superview {
-				if !superview.subviews.contains(subview) {
-					superview.addSubview(subview)
-				}
-			}
-		} else {
-			if !subviews.contains(subview) {
-				addSubview(subview)
-			}
-		}
+    func coverSelfEntirely(with subview: UIView, obeyMargins: Bool = true, allowVerticalExtensionDown: Bool = false) {
+        if subviews.contains(subview) {
+            bringSubviewToFront(subview)
+        } else {
+            addSubview(subview)
+        }
 		subview.translatesAutoresizingMaskIntoConstraints = false
-		
-		subview.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-		subview.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-		subview.widthAnchor.constraint(equalTo: widthAnchor, constant: -xInset).isActive = true
-		subview.heightAnchor.constraint(equalTo: heightAnchor, constant: -yInset).isActive = true
-		layoutIfNeeded()
+        addConstraints([
+            subview.leadingAnchor.constraint(equalTo: obeyMargins ? layoutMarginsGuide.leadingAnchor : leadingAnchor),
+            subview.trailingAnchor.constraint(equalTo: obeyMargins ? layoutMarginsGuide.trailingAnchor : trailingAnchor),
+            subview.topAnchor.constraint(equalTo: obeyMargins ? layoutMarginsGuide.topAnchor : topAnchor),
+            ])
+        if allowVerticalExtensionDown {
+            subview.bottomAnchor.constraint(lessThanOrEqualTo: obeyMargins ? layoutMarginsGuide.bottomAnchor : bottomAnchor).isActive = true
+        } else {
+            subview.bottomAnchor.constraint(equalTo: obeyMargins ? layoutMarginsGuide.bottomAnchor : bottomAnchor).isActive = true
+        }
+        
 	}
 }

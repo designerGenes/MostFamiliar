@@ -17,7 +17,7 @@ class ExampleData: NSObject {
     let stinger: String?
     let launchCallback: LaunchCallack?
     
-    init(title: String, subtitle:String, stinger: String?, hexColorString: String, launchCallback: LaunchCallack?) {
+    init(title: String, subtitle:String, stinger: String?, hexColorString: String, launchCallback: LaunchCallack? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.stinger = stinger

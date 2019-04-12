@@ -56,7 +56,7 @@ class SideCabinetController: UIViewController, UITableViewDelegate, UITableViewD
             fakeBgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             fakeBgroundView.topAnchor.constraint(equalTo: view.topAnchor),
             fakeBgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            fakeBgroundView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -48),
+            fakeBgroundView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -60),
             tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -97,7 +97,7 @@ class SideCabinetController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 24
+        return 48
     }
     
     @objc private func didSwipe(sender: UIPanGestureRecognizer) {

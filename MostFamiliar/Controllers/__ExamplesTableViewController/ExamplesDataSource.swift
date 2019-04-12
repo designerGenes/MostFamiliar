@@ -17,42 +17,62 @@ class ExamplesDataSource: NSObject, UITableViewDataSource {
         }
         return examples[idx]
     }
-    
-    // TMP!
-    
+
     private var examples = [ExampleData]()
     
     override init() {
         super.init()
         
-        let exampleOne = ExampleData(title: "Side cabinet", subtitle: "There are never enough side cabinets", stinger: "Click here", hexColorString: "#9877B5", launchCallback: { vc in
+        let sideCabinetExample = ExampleData(title: "Side cabinet", subtitle: "There are never enough side cabinets", stinger: "Click here", hexColorString: "#9877B5", launchCallback: { vc in
             (vc as? ExamplesTableViewController)?.delegate?.setCabinetOpen(shouldOpen: true)
         })
         
-        let exampleTwo = ExampleData(title: "Google Places", subtitle: "Convert user input into 1 of over 100,000,000 autosuggested Google addresses.", stinger: "Connect now", hexColorString: "#64B8ED", launchCallback: { vc in
-            vc.navigationController?.present(GooglePlacesViewController(), animated: true, completion: nil)
+        let spotifyExample = ExampleData(title: "Spotify integration", subtitle: "How can we make the world's best utility more useful?", stinger: "Hey listen", hexColorString: "#9877B5", launchCallback: { vc in
+            (vc as? ExamplesTableViewController)?.delegate?.setCabinetOpen(shouldOpen: true)
         })
         
-        let exampleThree = ExampleData(title: "Local storage", subtitle: "Download that dishwasher manual that keeps going missing, and store it so its never lost again", stinger: "Fix that", hexColorString: "#B8E986", launchCallback: { vc in
+        let collectionViewExample = CollectionContainingExampleData(title: "Tableview within cell", subtitle: "Cells that go sideways and sideways and sideways.", stinger: "Swipe swipe", hexColorString: "#db5461", launchCallback: { vc in
+            // none
+        })
+        
+        let nightModeExample = ExampleData(title: "Night mode", subtitle: "It's time for the world to sleep, and for you to work", stinger: "Can't stop!", hexColorString: "#B8E986", launchCallback: { vc in
+            
+        })
+
+        let googlePlacesExample = ExampleData(title: "Google Places", subtitle: "Convert user input into 1 of over 100,000,000 autosuggested Google addresses.", stinger: "Connect now", hexColorString: "#64B8ED", launchCallback: { vc in
+            (vc as? ExamplesTableViewController)?.navigationController?.pushViewController(GooglePlacesViewController(), animated: true)
+            
+        })
+
+        let localStorageExample = ExampleData(title: "Local storage", subtitle: "Download that dishwasher manual that keeps going missing, and store it so its never lost again", stinger: "Fix that", hexColorString: "#B8E986", launchCallback: { vc in
             
         })
         
-        let exampleFour = ExampleData(title: "Nested Navigation", subtitle: "Most apps are just navigation controllers nested within a tab bar controller.", stinger: "Get nesty", hexColorString: "#db5461", launchCallback: { vc in
+        let endlessTableViewExample = ExampleData(title: "Endless tableview", subtitle: "In about 5 billion years, even the sun will end.  A tableview with many items can make load times seem more endless than that.  This tableview is fast!", stinger: "Be amazed", hexColorString: "#2f195f", launchCallback: { (vc) in
             
         })
         
-        let exampleFive = ExampleData(title: "Endless tableview", subtitle: "In about 5 billion years, even the sun will end.  A tableview with many items can make load times seem more endless than that.  This tableview is fast!", stinger: "Be amazed", hexColorString: "#2f195f", launchCallback: { (vc) in
-            
-        })
-        
-        examples = [exampleOne, exampleTwo, exampleThree, exampleFour, exampleFive]
+        examples = [sideCabinetExample, collectionViewExample, nightModeExample, localStorageExample, spotifyExample, googlePlacesExample, localStorageExample, endlessTableViewExample]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let typedCell = tableView.dequeueReusableCell(withIdentifier: "FamiliarExampleCell", for: indexPath) as? FamiliarExampleCell else {
-            return UITableViewCell(frame: .zero)
+        let exampleData = examples[indexPath.section]
+        let typedCell: UITableViewCell
+        let actualRow = indexPath.section
+        var id = "FamiliarExampleCell"
+        switch exampleData {
+        case is CollectionContainingExampleData:
+            id = "FamiliarExampleCollectionContainingTableCell"
+        default: break
         }
-        typedCell.loadExample(idx: indexPath.section + 1, exampleData: examples[indexPath.section])
+    
+        typedCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)
+        
+        // if normal
+        (typedCell as? ContainsFamiliarExampleView)?.loadExample(coord: (0, actualRow + 1), exampleData: examples[actualRow])
+        
+        // if collection view container
+        (typedCell as? FamiliarExampleCollectionContainingTableCell)?.loadCoord(coord: (0, actualRow + 1))
         return typedCell
     }
     

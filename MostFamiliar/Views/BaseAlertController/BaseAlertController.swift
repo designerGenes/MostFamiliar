@@ -1,18 +1,18 @@
 //
-//  GooglePlacesViewController.swift
+//  BaseAlertController.swift
 //  MostFamiliar
 //
-//  Created by Jaden Nation on 4/8/19.
+//  Created by Jaden Nation on 4/12/19.
 //  Copyright © 2019 Designer Jeans. All rights reserved.
 //
 
 import UIKit
 
-class GooglePlacesViewController: UIViewController {
+class BaseAlertController: UIAlertController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
     }
     

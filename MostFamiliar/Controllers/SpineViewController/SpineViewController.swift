@@ -83,7 +83,7 @@ class SpineViewController: UIViewController, HostsSideCabinet {
         
         let offset: CGFloat = shouldOpen ? UIScreen.main.bounds.width * 0.6 : 0
         let zOffset: CGFloat = shouldOpen ? 0.8 : 1
-        let anchorPoint = CGPoint(x: shouldOpen ? 1 : 0.5, y: 0.5)
+//        let anchorPoint = CGPoint(x: shouldOpen ? 1 : 0.5, y: 0.5)
         // animate haze
         if shouldOpen {
             hazeView = UIControl()
@@ -103,8 +103,8 @@ class SpineViewController: UIViewController, HostsSideCabinet {
             centerCoverView = UIView()
             centerCoverView!.backgroundColor = UIColor.bgroundGray()
             
-            centerView.coverSelfEntirely(with: centerCoverView!)
-            centerView.coverSelfEntirely(with: snapShotView)
+            centerView.coverSelfEntirely(with: centerCoverView!, obeyMargins: false)
+            centerView.coverSelfEntirely(with: snapShotView, obeyMargins: false)
         }
 
         // this is ugly code written in a hurry
