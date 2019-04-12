@@ -27,9 +27,9 @@ class ExamplesDataSource: NSObject, UITableViewDataSource {
             (vc as? ExamplesTableViewController)?.delegate?.setCabinetOpen(shouldOpen: true)
         })
         
-        let exampleTwo = ExampleData(title: "Tableview within cell", subtitle: "Cells that go sideways and sideways and sideways.", stinger: "Swipe swipe", hexColorString: "#db5461", launchCallback: { vc in
-            
-        })
+//        let exampleTwo = CollectionContainingExampleData(title: "Tableview within cell", subtitle: "Cells that go sideways and sideways and sideways.", stinger: "Swipe swipe", hexColorString: "#db5461", launchCallback: { vc in
+//            // none
+//        })
         
         let exampleFour = ExampleData(title: "Google Places", subtitle: "Convert user input into 1 of over 100,000,000 autosuggested Google addresses.", stinger: "Connect now", hexColorString: "#64B8ED", launchCallback: { vc in
             (vc as? ExamplesTableViewController)?.navigationController?.pushViewController(GooglePlacesViewController(), animated: true)
@@ -45,14 +45,19 @@ class ExamplesDataSource: NSObject, UITableViewDataSource {
             
         })
         
-        examples = [exampleOne, exampleTwo, exampleThree, exampleFour, exampleFive]
+        examples = [exampleOne, /* exampleTwo, */ exampleThree, exampleFour, exampleFive]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let typedCell = tableView.dequeueReusableCell(withIdentifier: "FamiliarExampleCell", for: indexPath) as? FamiliarExampleCell else {
-            return UITableViewCell(frame: .zero)
+        let exampleData = examples[indexPath.section]
+        let typedCell: UITableViewCell
+        if type(of: exampleData) == CollectionContainingExampleData.self {
+            typedCell = tableView.dequeueReusableCell(withIdentifier: "FamiliarExampleCollectionContainingTableCell", for: indexPath)
+        } else {
+            typedCell = tableView.dequeueReusableCell(withIdentifier: "FamiliarExampleCell", for: indexPath)
         }
-        typedCell.loadExample(idx: indexPath.section + 1, exampleData: examples[indexPath.section])
+        
+        (typedCell as! ContainsFamiliarExampleView).loadExample(idx: indexPath.section + 1, exampleData: examples[indexPath.section])
         return typedCell
     }
     

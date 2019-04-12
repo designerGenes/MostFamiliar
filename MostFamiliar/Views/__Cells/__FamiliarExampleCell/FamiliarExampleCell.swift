@@ -26,7 +26,7 @@ class FamiliarExampleCell: UITableViewCell {
         
     }
     
-    private func addControls() {
+    internal func addControls() {
 
         for view in [coloredRim, indexLabel, titleLabel, subtitleLabel, stingerLabel, divider] {
             contentView.addSubview(view)

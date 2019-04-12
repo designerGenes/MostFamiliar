@@ -17,4 +17,9 @@ extension UIColor {
     class func lightPurple() -> UIColor { return UIColor(hexString: "#9877B5") }
     class func bgroundGray() -> UIColor { return UIColor(hexString: "#F7F7F7") }
     class func skyBlue() -> UIColor { return UIColor(hexString: "#5EAEDF") }
+    
+    class func randomProjectColor(notColor: UIColor? = nil) -> UIColor {
+        let colors = [darkPurple(), brightRed(), limeGreen(), lightPurple(), skyBlue()].filter({$0 != notColor})
+        return colors[randomInt(upperBound: colors.count)] ?? UIColor.bgroundGray()
+    }
 }
