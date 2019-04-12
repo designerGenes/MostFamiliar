@@ -18,7 +18,17 @@ class FamiliarExampleCollectionViewCell: UICollectionViewCell, ContainsFamiliarE
     private func linkControls() {
         let exampleView = FamiliarExampleView(cellContentView: contentView)
         self.exampleView = exampleView
-        coverSelfEntirely(with: exampleView, obeyMargins: true, allowVerticalExtensionDown: true)
+        addSubview(exampleView)
+        exampleView.translatesAutoresizingMaskIntoConstraints = false
+        addConstraints([
+            exampleView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+            exampleView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            exampleView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            ])
+        
+        let weakAnchor = exampleView.bottomAnchor.constraint(lessThanOrEqualTo: layoutMarginsGuide.bottomAnchor)
+        weakAnchor.priority = .defaultLow
+        weakAnchor.isActive = true
     }
     
     override init(frame: CGRect) {

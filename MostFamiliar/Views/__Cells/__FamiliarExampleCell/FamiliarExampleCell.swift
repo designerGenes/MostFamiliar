@@ -39,8 +39,6 @@ class FamiliarExampleCell: UITableViewCell, ContainsFamiliarExampleView {
             exampleView.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: FamiliarExampleCell.screenWidthMultiplier),
             ])
         
-//        contentView.coverSelfEntirely(with: exampleView, obeyMargins: true, allowVerticalExtensionDown: true)
-        
         selectionStyle = .none
         backgroundColor = .clear
         layer.masksToBounds = false

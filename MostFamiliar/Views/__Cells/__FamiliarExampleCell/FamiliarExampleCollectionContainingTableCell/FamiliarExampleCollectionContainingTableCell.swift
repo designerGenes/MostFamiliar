@@ -80,24 +80,25 @@ class FamiliarExampleCollectionContainingTableCell: UITableViewCell, UICollectio
             let subtitle = !isFinalRow ? "Cells that go sideways and sideways and sideways..." : "...until they abruptly stop."
             let stinger = isFinalRow ? "Swipe back" : "Swipe swipe"
             randomColorString = UIColor.randomProjectColor(notColor: potentialExistingColor).hexValue()
-            data.append(ExampleData(title: "cell \(k)", subtitle: subtitle, stinger: stinger, hexColorString: randomColorString))
+            data.append(ExampleData(title: "Random cell", subtitle: subtitle, stinger: stinger, hexColorString: randomColorString))
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: section < 1 ? (UIScreen.main.bounds.width - (UIScreen.main.bounds.width * FamiliarExampleCell.screenWidthMultiplier)) / 2 : 0, height: 0)
+        return CGSize(width: section < 1 ? (UIScreen.main.bounds.width - (UIScreen.main.bounds.width * FamiliarExampleCell.screenWidthMultiplier)) / 2 : 0, height: 10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: section == data.count - 1 ? (UIScreen.main.bounds.width - (UIScreen.main.bounds.width * FamiliarExampleCell.screenWidthMultiplier)) / 2 : 0, height: 10)
     }
     
     func addControls() {
-        generateData(generatedRowCount: 3)
+        generateData(generatedRowCount: 8)
         let flowLayout = UICollectionViewFlowLayout.init()
         flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         flowLayout.scrollDirection = .horizontal
-    
-        
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.showsHorizontalScrollIndicator = false
-        
         coverSelfEntirely(with: collectionView, obeyMargins: false, allowVerticalExtensionDown: true)
         collectionView.heightAnchor.constraint(equalToConstant: FamiliarExampleCell.baseHeight).isActive = true
         collectionView.register(FamiliarExampleCollectionViewCell.self, forCellWithReuseIdentifier: "FamiliarExampleCollectionViewCell")
@@ -111,7 +112,6 @@ class FamiliarExampleCollectionContainingTableCell: UITableViewCell, UICollectio
         layer.shadowRadius = 4
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowColor = UIColor.black.cgColor
-        
     }
 
 }

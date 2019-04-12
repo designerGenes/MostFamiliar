@@ -56,7 +56,7 @@ class FamiliarExampleView: UIView {
         
         
         let topMargin: CGFloat = 32
-        layoutMargins = UIEdgeInsets(top: topMargin, left: 16, bottom: topMargin * 2, right: 16)
+        layoutMargins = UIEdgeInsets(top: topMargin, left: 16, bottom: topMargin * 1.5, right: 16)
         addConstraints([
             coloredRim.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: -topMargin),
             titleLabel.topAnchor.constraint(equalTo: coloredRim.bottomAnchor, constant: 16),
@@ -67,7 +67,7 @@ class FamiliarExampleView: UIView {
             
             coloredRim.leadingAnchor.constraint(equalTo: leadingAnchor),
             coloredRim.trailingAnchor.constraint(equalTo: trailingAnchor),
-            coloredRim.heightAnchor.constraint(equalToConstant: 50),
+            coloredRim.heightAnchor.constraint(equalToConstant: 56),
             indexLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             indexLabel.centerYAnchor.constraint(equalTo: coloredRim.centerYAnchor, constant: 8),
             titleLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
