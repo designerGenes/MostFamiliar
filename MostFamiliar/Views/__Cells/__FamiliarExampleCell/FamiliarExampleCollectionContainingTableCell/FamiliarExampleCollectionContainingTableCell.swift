@@ -84,19 +84,21 @@ class FamiliarExampleCollectionContainingTableCell: UITableViewCell, UICollectio
         }
     }
 
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: section < 1 ? (UIScreen.main.bounds.width - (UIScreen.main.bounds.width * FamiliarExampleCell.screenWidthMultiplier)) / 2 : 0, height: 0)
+    }
     
     func addControls() {
         generateData(generatedRowCount: 3)
         let flowLayout = UICollectionViewFlowLayout.init()
         flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         flowLayout.scrollDirection = .horizontal
+    
         
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: FamiliarExampleCell.baseHeight), collectionViewLayout: flowLayout)
-        collectionView.contentSize = CGSize(width: 20000, height: 2000)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.showsHorizontalScrollIndicator = false
         
-        coverSelfEntirely(with: collectionView, obeyMargins: true, allowVerticalExtensionDown: true)
+        coverSelfEntirely(with: collectionView, obeyMargins: false, allowVerticalExtensionDown: true)
         collectionView.heightAnchor.constraint(equalToConstant: FamiliarExampleCell.baseHeight).isActive = true
         collectionView.register(FamiliarExampleCollectionViewCell.self, forCellWithReuseIdentifier: "FamiliarExampleCollectionViewCell")
         collectionView.dataSource = self

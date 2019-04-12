@@ -18,6 +18,7 @@ protocol ContainsFamiliarExampleView: class {
 class FamiliarExampleCell: UITableViewCell, ContainsFamiliarExampleView {
     private var exampleView: FamiliarExampleView?
     public static let baseHeight: CGFloat = 256
+    public static let screenWidthMultiplier: CGFloat = 0.85
     
     func loadExample(coord: IntCoord, exampleData: ExampleData) {
         // vertical, only cares about row idx
@@ -28,7 +29,17 @@ class FamiliarExampleCell: UITableViewCell, ContainsFamiliarExampleView {
     func addControls() {
         let exampleView = FamiliarExampleView(cellContentView: contentView)
         self.exampleView = exampleView
-        contentView.coverSelfEntirely(with: exampleView, obeyMargins: true, allowVerticalExtensionDown: true)
+        
+        contentView.addSubview(exampleView)
+        exampleView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addConstraints([
+            exampleView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+            exampleView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.layoutMarginsGuide.bottomAnchor),
+            exampleView.centerXAnchor.constraint(equalTo: contentView.layoutMarginsGuide.centerXAnchor),
+            exampleView.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: FamiliarExampleCell.screenWidthMultiplier),
+            ])
+        
+//        contentView.coverSelfEntirely(with: exampleView, obeyMargins: true, allowVerticalExtensionDown: true)
         
         selectionStyle = .none
         backgroundColor = .clear

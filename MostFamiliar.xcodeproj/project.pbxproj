@@ -30,7 +30,6 @@
 		FE16342F225D21DF001B87E7 /* UIColor+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16342E225D21DF001B87E7 /* UIColor+Design.swift */; };
 		FE163432225D3970001B87E7 /* SideCabinetOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE163431225D3970001B87E7 /* SideCabinetOptionCell.swift */; };
 		FE163437225D3F3F001B87E7 /* SF-Pro-Text-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE163436225D3F3C001B87E7 /* SF-Pro-Text-Bold.ttf */; };
-		FEDF3330225FBA02006505CC /* HorizontalTableContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDF332F225FBA02006505CC /* HorizontalTableContainerCell.swift */; };
 		FEDF3336225FBB85006505CC /* FamiliarExampleCollectionContainingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDF3335225FBB85006505CC /* FamiliarExampleCollectionContainingTableCell.swift */; };
 		FEDF3338225FBDBE006505CC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDF3337225FBDBE006505CC /* Utils.swift */; };
 		FEDF333A225FC338006505CC /* FamiliarExampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDF3339225FC338006505CC /* FamiliarExampleCollectionViewCell.swift */; };
@@ -65,7 +64,6 @@
 		FE16342E225D21DF001B87E7 /* UIColor+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Design.swift"; sourceTree = "<group>"; };
 		FE163431225D3970001B87E7 /* SideCabinetOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideCabinetOptionCell.swift; sourceTree = "<group>"; };
 		FE163436225D3F3C001B87E7 /* SF-Pro-Text-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.ttf"; sourceTree = "<group>"; };
-		FEDF332F225FBA02006505CC /* HorizontalTableContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTableContainerCell.swift; sourceTree = "<group>"; };
 		FEDF3335225FBB85006505CC /* FamiliarExampleCollectionContainingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamiliarExampleCollectionContainingTableCell.swift; sourceTree = "<group>"; };
 		FEDF3337225FBDBE006505CC /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FEDF3339225FC338006505CC /* FamiliarExampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamiliarExampleCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -285,17 +283,8 @@
 			children = (
 				FE163435225D3DA4001B87E7 /* __FamiliarExampleCell */,
 				FE163434225D3D96001B87E7 /* SideCabinetOptionCell */,
-				FEDF3331225FBA17006505CC /* __HorizontalTableContainerCell */,
 			);
 			path = __Cells;
-			sourceTree = "<group>";
-		};
-		FEDF3331225FBA17006505CC /* __HorizontalTableContainerCell */ = {
-			isa = PBXGroup;
-			children = (
-				FEDF332F225FBA02006505CC /* HorizontalTableContainerCell.swift */,
-			);
-			path = __HorizontalTableContainerCell;
 			sourceTree = "<group>";
 		};
 		FEDF333B225FC340006505CC /* FamiliarExampleCollectionViewCell */ = {
@@ -447,7 +436,6 @@
 				FE1633F4225C0E73001B87E7 /* AppDelegate.swift in Sources */,
 				FEDF333A225FC338006505CC /* FamiliarExampleCollectionViewCell.swift in Sources */,
 				FEDF3338225FBDBE006505CC /* Utils.swift in Sources */,
-				FEDF3330225FBA02006505CC /* HorizontalTableContainerCell.swift in Sources */,
 				FE163429225D031C001B87E7 /* UIView+Convenience.swift in Sources */,
 				FE16341D225C1884001B87E7 /* ExamplesDataSource.swift in Sources */,
 				FEDF333D225FC36D006505CC /* FamiliarExampleView.swift in Sources */,

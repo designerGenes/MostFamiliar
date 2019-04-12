@@ -24,6 +24,7 @@ class ExamplesTableViewController: UIViewController, UITableViewDelegate, SideCa
         tableView.register(FamiliarExampleCell.self, forCellReuseIdentifier: "FamiliarExampleCell")
         tableView.register(FamiliarExampleCollectionContainingTableCell.self, forCellReuseIdentifier: "FamiliarExampleCollectionContainingTableCell")
         tableView.showsVerticalScrollIndicator = false
+        tableView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "hamburgerMenu"), style: .plain, target: self, action: #selector(clickedOpenHamburgerMenu(sender:)))
