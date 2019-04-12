@@ -30,6 +30,8 @@
 		FE16342F225D21DF001B87E7 /* UIColor+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16342E225D21DF001B87E7 /* UIColor+Design.swift */; };
 		FE163432225D3970001B87E7 /* SideCabinetOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE163431225D3970001B87E7 /* SideCabinetOptionCell.swift */; };
 		FE163437225D3F3F001B87E7 /* SF-Pro-Text-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE163436225D3F3C001B87E7 /* SF-Pro-Text-Bold.ttf */; };
+		FE44BA5D22614563001DE749 /* UIViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44BA5C22614563001DE749 /* UIViewController+Convenience.swift */; };
+		FE44BA5F22614692001DE749 /* BaseAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44BA5E22614692001DE749 /* BaseAlertController.swift */; };
 		FEDF3336225FBB85006505CC /* FamiliarExampleCollectionContainingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDF3335225FBB85006505CC /* FamiliarExampleCollectionContainingTableCell.swift */; };
 		FEDF3338225FBDBE006505CC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDF3337225FBDBE006505CC /* Utils.swift */; };
 		FEDF333A225FC338006505CC /* FamiliarExampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDF3339225FC338006505CC /* FamiliarExampleCollectionViewCell.swift */; };
@@ -64,6 +66,8 @@
 		FE16342E225D21DF001B87E7 /* UIColor+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Design.swift"; sourceTree = "<group>"; };
 		FE163431225D3970001B87E7 /* SideCabinetOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideCabinetOptionCell.swift; sourceTree = "<group>"; };
 		FE163436225D3F3C001B87E7 /* SF-Pro-Text-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.ttf"; sourceTree = "<group>"; };
+		FE44BA5C22614563001DE749 /* UIViewController+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Convenience.swift"; sourceTree = "<group>"; };
+		FE44BA5E22614692001DE749 /* BaseAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlertController.swift; sourceTree = "<group>"; };
 		FEDF3335225FBB85006505CC /* FamiliarExampleCollectionContainingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamiliarExampleCollectionContainingTableCell.swift; sourceTree = "<group>"; };
 		FEDF3337225FBDBE006505CC /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FEDF3339225FC338006505CC /* FamiliarExampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamiliarExampleCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				FEDF332E225FB9C7006505CC /* __Cells */,
+				FE44BA60226146A8001DE749 /* BaseAlertController */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				FE16342E225D21DF001B87E7 /* UIColor+Design.swift */,
 				FE163424225C2367001B87E7 /* UIFont+Design.swift */,
 				FEDF3337225FBDBE006505CC /* Utils.swift */,
+				FE44BA5C22614563001DE749 /* UIViewController+Convenience.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -276,6 +282,14 @@
 				FE163413225C118F001B87E7 /* LocalStorageViewController.swift */,
 			);
 			path = LocalStorageViewController;
+			sourceTree = "<group>";
+		};
+		FE44BA60226146A8001DE749 /* BaseAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				FE44BA5E22614692001DE749 /* BaseAlertController.swift */,
+			);
+			path = BaseAlertController;
 			sourceTree = "<group>";
 		};
 		FEDF332E225FB9C7006505CC /* __Cells */ = {
@@ -427,8 +441,10 @@
 				FE163410225C116C001B87E7 /* EndlessTableViewController.swift in Sources */,
 				FEDF3336225FBB85006505CC /* FamiliarExampleCollectionContainingTableCell.swift in Sources */,
 				FE1633F6225C0E73001B87E7 /* ExamplesTableViewController.swift in Sources */,
+				FE44BA5F22614692001DE749 /* BaseAlertController.swift in Sources */,
 				FE16340C225C1127001B87E7 /* SideCabinetController.swift in Sources */,
 				FE16342B225D1483001B87E7 /* SpineViewController.swift in Sources */,
+				FE44BA5D22614563001DE749 /* UIViewController+Convenience.swift in Sources */,
 				FE163432225D3970001B87E7 /* SideCabinetOptionCell.swift in Sources */,
 				FE163409225C108E001B87E7 /* FamiliarExampleCell.swift in Sources */,
 				FE163414225C118F001B87E7 /* LocalStorageViewController.swift in Sources */,
