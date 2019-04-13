@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 import ChameleonFramework
+import SwiftSpinner
+
+typealias RoleColorTuple = (role: ColorRole, color: UIColor)
+typealias RoleColorSheet = [ColorRole: UIColor]
 
 enum ColorRole {
     case headerFill // may contain title-style uniquely-colored text but not body text
@@ -33,12 +37,12 @@ enum DisplayColorMode: String {
 }
 
 protocol UsesDisplayColorMode: class {
-    func dcmEnrolledViews() -> [ColorRole: UIView]
+    func dcmEnrolledViews() -> [(ColorRole, UIView)]
 //    func setDisplayColorMode(mode: DisplayColorMode)
 }
 
 extension UsesDisplayColorMode {
-    func applyDisplayColorSheet(colorSheet: [ColorRole: UIColor]) {
+    func applyDisplayColorSheet(colorSheet: RoleColorSheet) {
         // this is only the default implementation
         for (role, view) in dcmEnrolledViews() {
             switch role {
@@ -54,17 +58,20 @@ extension UsesDisplayColorMode {
     }
 }
 
+
 class DisplayColorModeManager: NSObject {
     private static var colorMode: DisplayColorMode = .regular
     private static var colorModeChangeListeners = Set<NSObject>()  // should conform to UsesDisplayColorMode
-    private static var defaultColorSheets = [NSObject: [ColorRole: UIColor]]()
+    private static var defaultColorSheets = [NSObject: [RoleColorTuple]]()
     
     static func getColorMode() -> DisplayColorMode {
         return DisplayColorMode(rawValue: colorMode.rawValue)!
     }
 
-    private static func createColorSheet(roleViewMap: [ColorRole: UIView]) -> [ColorRole: UIColor] {
-        var out = [ColorRole: UIColor]()
+    private static func createColorSheet(from roleViewMap: [ColorRole: UIView]) -> RoleColorSheet {
+        // assimilate roleViewMap and return sheet
+        
+        var out = RoleColorSheet()
         for (role, view) in roleViewMap {
             switch role {
             case .bodyFill, .headerFill, .navigationHeaderFill:
@@ -83,7 +90,7 @@ class DisplayColorModeManager: NSObject {
             return
         }
         colorModeChangeListeners.insert(registrant)
-        defaultColorSheets[registrant] = createColorSheet(roleViewMap: typedRegistrant.dcmEnrolledViews())  // default is starting state
+//        defaultColorSheets[registrant] = createColorSheet(from: typedRegistrant.dcmEnrolledViews())  // default is starting state
     }
     
     static func deRegisterForChangeNotification(registrant: NSObject) {
@@ -94,15 +101,37 @@ class DisplayColorModeManager: NSObject {
     
     
     static func setGlobalDisplayColorMode(mode: DisplayColorMode) {
-        for untyped in colorModeChangeListeners {
-            let nightModeColorSheet = makeColorSheet(for: .night, from: defaultColorSheets[untyped]!)
-            let typed = untyped as! UsesDisplayColorMode
-            let colorSheet = mode == .regular ? defaultColorSheets[untyped]! : nightModeColorSheet
-            typed.applyDisplayColorSheet(colorSheet: colorSheet)  // temporary since we have only 2 modes
+        SwiftSpinner.show("Applying")
+//        for untyped in colorModeChangeListeners {
+//            let nightModeColorSheet = makeColorSheet(for: .night, from: defaultColorSheets[untyped]!)
+//            let typed = untyped as! UsesDisplayColorMode
+//            let colorSheet = mode == .regular ? defaultColorSheets[untyped]! : nightModeColorSheet
+//            typed.applyDisplayColorSheet(colorSheet: colorSheet)  // temporary since we have only 2 modes
+//        }
+//
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+            SwiftSpinner.hide() // primitive
         }
     }
     
-    private static func makeColorSheet(for mode: DisplayColorMode, from sheet: [ColorRole: UIColor]) -> [ColorRole: UIColor] {
+    private static func makeColorSheet(for mode: DisplayColorMode, from sheet: RoleColorSheet) -> RoleColorSheet {
+        guard mode == .night else {
+            return sheet  // for now
+        }
+        
+        var sheet = sheet
+        var newColor: UIColor?
+        for (role, color) in sheet {
+            switch role {
+            case .bodyText, .headerText:
+                newColor = UIColor(contrastingBlackOrWhiteColorOn: color, isFlat: true)
+            case .bodyFill, .headerFill, .navigationHeaderFill:
+                newColor = color.darken(byPercentage: 0.8)
+            default: break
+            }
+            sheet[role] = newColor
+        }
+        
         return sheet
     }
     
