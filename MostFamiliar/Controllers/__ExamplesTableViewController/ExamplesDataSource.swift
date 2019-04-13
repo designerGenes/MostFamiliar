@@ -35,7 +35,7 @@ class ExamplesDataSource: NSObject, UITableViewDataSource {
             // none
         })
         
-        let nightModeExample = ExampleData(title: "Night mode", subtitle: "It's time for the world to sleep, and for you to work", stinger: "Can't stop!", hexColorString: "#B8E986", launchCallback: { vc in
+        let nightModeExample = ExampleData(title: "Night mode", subtitle: "Night mode, fighter of the day mode.  Champion of the moon!", stinger: "Work work!", hexColorString: "#B8E986", launchCallback: { vc in
             
         })
 

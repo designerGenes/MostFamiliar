@@ -32,6 +32,8 @@
 		FE163437225D3F3F001B87E7 /* SF-Pro-Text-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE163436225D3F3C001B87E7 /* SF-Pro-Text-Bold.ttf */; };
 		FE44BA5D22614563001DE749 /* UIViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44BA5C22614563001DE749 /* UIViewController+Convenience.swift */; };
 		FE44BA5F22614692001DE749 /* BaseAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44BA5E22614692001DE749 /* BaseAlertController.swift */; };
+		FE44BA63226147F4001DE749 /* DisplayColorModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44BA62226147F4001DE749 /* DisplayColorModeManager.swift */; };
+		FE44BA6522614BDE001DE749 /* ExamplesTableViewController+UsesDisplayColorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44BA6422614BDE001DE749 /* ExamplesTableViewController+UsesDisplayColorMode.swift */; };
 		FEDF3336225FBB85006505CC /* FamiliarExampleCollectionContainingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDF3335225FBB85006505CC /* FamiliarExampleCollectionContainingTableCell.swift */; };
 		FEDF3338225FBDBE006505CC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDF3337225FBDBE006505CC /* Utils.swift */; };
 		FEDF333A225FC338006505CC /* FamiliarExampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDF3339225FC338006505CC /* FamiliarExampleCollectionViewCell.swift */; };
@@ -68,6 +70,8 @@
 		FE163436225D3F3C001B87E7 /* SF-Pro-Text-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.ttf"; sourceTree = "<group>"; };
 		FE44BA5C22614563001DE749 /* UIViewController+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Convenience.swift"; sourceTree = "<group>"; };
 		FE44BA5E22614692001DE749 /* BaseAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlertController.swift; sourceTree = "<group>"; };
+		FE44BA62226147F4001DE749 /* DisplayColorModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayColorModeManager.swift; sourceTree = "<group>"; };
+		FE44BA6422614BDE001DE749 /* ExamplesTableViewController+UsesDisplayColorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExamplesTableViewController+UsesDisplayColorMode.swift"; sourceTree = "<group>"; };
 		FEDF3335225FBB85006505CC /* FamiliarExampleCollectionContainingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamiliarExampleCollectionContainingTableCell.swift; sourceTree = "<group>"; };
 		FEDF3337225FBDBE006505CC /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FEDF3339225FC338006505CC /* FamiliarExampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamiliarExampleCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 		FE1633F2225C0E73001B87E7 /* MostFamiliar */ = {
 			isa = PBXGroup;
 			children = (
+				FE44BA61226147E0001DE749 /* __Protocols */,
 				FE163423225C2345001B87E7 /* Extensions */,
 				FE163418225C17E3001B87E7 /* Models */,
 				FE163407225C1073001B87E7 /* Views */,
@@ -158,7 +163,7 @@
 		FE163407225C1073001B87E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FEDF332E225FB9C7006505CC /* __Cells */,
+				FEDF332E225FB9C7006505CC /* Cells */,
 				FE44BA60226146A8001DE749 /* BaseAlertController */,
 			);
 			path = Views;
@@ -189,6 +194,7 @@
 			children = (
 				FE163416225C11D8001B87E7 /* ExamplesTableViewController.xib */,
 				FE1633F5225C0E73001B87E7 /* ExamplesTableViewController.swift */,
+				FE44BA6422614BDE001DE749 /* ExamplesTableViewController+UsesDisplayColorMode.swift */,
 				FE16341C225C1884001B87E7 /* ExamplesDataSource.swift */,
 			);
 			path = __ExamplesTableViewController;
@@ -292,13 +298,29 @@
 			path = BaseAlertController;
 			sourceTree = "<group>";
 		};
-		FEDF332E225FB9C7006505CC /* __Cells */ = {
+		FE44BA61226147E0001DE749 /* __Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FE44BA6622614CEF001DE749 /* __DisplayColorModeManager */,
+			);
+			path = __Protocols;
+			sourceTree = "<group>";
+		};
+		FE44BA6622614CEF001DE749 /* __DisplayColorModeManager */ = {
+			isa = PBXGroup;
+			children = (
+				FE44BA62226147F4001DE749 /* DisplayColorModeManager.swift */,
+			);
+			path = __DisplayColorModeManager;
+			sourceTree = "<group>";
+		};
+		FEDF332E225FB9C7006505CC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				FE163435225D3DA4001B87E7 /* __FamiliarExampleCell */,
 				FE163434225D3D96001B87E7 /* SideCabinetOptionCell */,
 			);
-			path = __Cells;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		FEDF333B225FC340006505CC /* FamiliarExampleCollectionViewCell */ = {
@@ -456,8 +478,10 @@
 				FE16341D225C1884001B87E7 /* ExamplesDataSource.swift in Sources */,
 				FEDF333D225FC36D006505CC /* FamiliarExampleView.swift in Sources */,
 				FE163412225C1180001B87E7 /* GooglePlacesViewController.swift in Sources */,
+				FE44BA6522614BDE001DE749 /* ExamplesTableViewController+UsesDisplayColorMode.swift in Sources */,
 				FE16341A225C17F2001B87E7 /* ExampleData.swift in Sources */,
 				FE16342F225D21DF001B87E7 /* UIColor+Design.swift in Sources */,
+				FE44BA63226147F4001DE749 /* DisplayColorModeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
