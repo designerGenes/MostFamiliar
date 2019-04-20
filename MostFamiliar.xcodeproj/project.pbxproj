@@ -38,6 +38,8 @@
 		FE236EC5226B665C00E0CB38 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE236EC4226B665C00E0CB38 /* Playlist.swift */; };
 		FE236EC7226B667300E0CB38 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE236EC6226B667300E0CB38 /* Album.swift */; };
 		FE236EC9226B749900E0CB38 /* RandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE236EC8226B749900E0CB38 /* RandomGenerator.swift */; };
+		FE236ECC226B917D00E0CB38 /* ReshufflifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE236ECA226B917D00E0CB38 /* ReshufflifyTableViewCell.swift */; };
+		FE236ECD226B917D00E0CB38 /* ReshufflifyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE236ECB226B917D00E0CB38 /* ReshufflifyTableViewCell.xib */; };
 		FE44BA5D22614563001DE749 /* UIViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44BA5C22614563001DE749 /* UIViewController+Convenience.swift */; };
 		FE44BA5F22614692001DE749 /* BaseAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44BA5E22614692001DE749 /* BaseAlertController.swift */; };
 		FE44BA63226147F4001DE749 /* DisplayColorModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44BA62226147F4001DE749 /* DisplayColorModeManager.swift */; };
@@ -84,6 +86,8 @@
 		FE236EC4226B665C00E0CB38 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		FE236EC6226B667300E0CB38 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		FE236EC8226B749900E0CB38 /* RandomGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGenerator.swift; sourceTree = "<group>"; };
+		FE236ECA226B917D00E0CB38 /* ReshufflifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReshufflifyTableViewCell.swift; sourceTree = "<group>"; };
+		FE236ECB226B917D00E0CB38 /* ReshufflifyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReshufflifyTableViewCell.xib; sourceTree = "<group>"; };
 		FE44BA5C22614563001DE749 /* UIViewController+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Convenience.swift"; sourceTree = "<group>"; };
 		FE44BA5E22614692001DE749 /* BaseAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlertController.swift; sourceTree = "<group>"; };
 		FE44BA62226147F4001DE749 /* DisplayColorModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayColorModeManager.swift; sourceTree = "<group>"; };
@@ -337,6 +341,15 @@
 			path = __Shufflify;
 			sourceTree = "<group>";
 		};
+		FE236ECE226B973C00E0CB38 /* ReshufflifyTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FE236ECA226B917D00E0CB38 /* ReshufflifyTableViewCell.swift */,
+				FE236ECB226B917D00E0CB38 /* ReshufflifyTableViewCell.xib */,
+			);
+			path = ReshufflifyTableViewCell;
+			sourceTree = "<group>";
+		};
 		FE44BA60226146A8001DE749 /* BaseAlertController */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +380,7 @@
 				FE236EBB226B620F00E0CB38 /* __ShufflifyTableViewCell */,
 				FE163435225D3DA4001B87E7 /* FamiliarExampleCell */,
 				FE163434225D3D96001B87E7 /* SideCabinetOptionCell */,
+				FE236ECE226B973C00E0CB38 /* ReshufflifyTableViewCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -451,6 +465,7 @@
 				FE1633FB225C0E74001B87E7 /* Assets.xcassets in Resources */,
 				FE163422225C22E0001B87E7 /* FilsonSoftRegular.otf in Resources */,
 				FE163437225D3F3F001B87E7 /* SF-Pro-Text-Bold.ttf in Resources */,
+				FE236ECD226B917D00E0CB38 /* ReshufflifyTableViewCell.xib in Resources */,
 				FE163427225C2397001B87E7 /* SanFranciscoDisplay-Regular.otf in Resources */,
 				FE163417225C11D8001B87E7 /* ExamplesTableViewController.xib in Resources */,
 				FE236EBA226B620B00E0CB38 /* ShufflifyTableViewCell.xib in Resources */,
@@ -527,6 +542,7 @@
 				FE163409225C108E001B87E7 /* FamiliarExampleCell.swift in Sources */,
 				FE163414225C118F001B87E7 /* LocalStorageViewController.swift in Sources */,
 				FE16340E225C1159001B87E7 /* NestedNavigationViewController.swift in Sources */,
+				FE236ECC226B917D00E0CB38 /* ReshufflifyTableViewCell.swift in Sources */,
 				FE1633F4225C0E73001B87E7 /* AppDelegate.swift in Sources */,
 				FEDF333A225FC338006505CC /* FamiliarExampleCollectionViewCell.swift in Sources */,
 				FEDF3338225FBDBE006505CC /* Utils.swift in Sources */,

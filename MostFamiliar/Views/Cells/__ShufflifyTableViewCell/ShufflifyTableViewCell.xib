@@ -28,7 +28,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hopeless Romantic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIV-69-da9">
-                        <rect key="frame" x="20" y="8" width="159" height="19.5"/>
+                        <rect key="frame" x="20" y="8" width="158.5" height="19.5"/>
                         <fontDescription key="fontDescription" name="SanFranciscoDisplay-Regular" family="San Francisco Display" pointSize="19"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -66,10 +66,13 @@
                     <constraint firstItem="JsQ-Rf-Zci" firstAttribute="top" secondItem="EIV-69-da9" secondAttribute="bottom" constant="4" id="2yJ-eq-HIf"/>
                     <constraint firstItem="huY-DV-ebs" firstAttribute="leading" secondItem="4XR-Lr-opu" secondAttribute="trailing" constant="8" id="4Vl-Zg-MJF"/>
                     <constraint firstItem="JsQ-Rf-Zci" firstAttribute="leading" secondItem="EIV-69-da9" secondAttribute="leading" id="6zk-28-cIJ"/>
+                    <constraint firstItem="EIV-69-da9" firstAttribute="width" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="width" constant="-8" id="CCi-l1-auJ"/>
                     <constraint firstItem="EPD-iQ-Jn0" firstAttribute="centerY" secondItem="4XR-Lr-opu" secondAttribute="centerY" id="CqB-rX-b4e"/>
                     <constraint firstItem="huY-DV-ebs" firstAttribute="centerY" secondItem="4XR-Lr-opu" secondAttribute="centerY" id="JFc-jP-Mut"/>
                     <constraint firstItem="4XR-Lr-opu" firstAttribute="leading" secondItem="JsQ-Rf-Zci" secondAttribute="trailing" constant="8" id="NpB-dQ-Ddy"/>
+                    <constraint firstItem="4XR-Lr-opu" firstAttribute="width" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.4" id="b5K-dT-RKc"/>
                     <constraint firstItem="EPD-iQ-Jn0" firstAttribute="leading" secondItem="huY-DV-ebs" secondAttribute="trailing" constant="8" id="ipk-vc-Tfy"/>
+                    <constraint firstItem="EPD-iQ-Jn0" firstAttribute="width" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.4" id="qJm-hd-FDm"/>
                     <constraint firstItem="4XR-Lr-opu" firstAttribute="centerY" secondItem="JsQ-Rf-Zci" secondAttribute="centerY" id="sAw-DJ-hCG"/>
                     <constraint firstItem="EIV-69-da9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="seD-0O-L3b"/>
                     <constraint firstAttribute="bottom" secondItem="JsQ-Rf-Zci" secondAttribute="bottom" constant="8" id="tfg-O6-Fvw"/>

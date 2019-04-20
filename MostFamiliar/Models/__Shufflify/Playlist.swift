@@ -8,15 +8,11 @@
 
 import Foundation
 
-protocol PlaylistDelegate: class {
-    func didFillPlaylist(playlist: Playlist)
-}
 
 class Playlist: NSObject {
     static var playlists = [Playlist]()
     private var tracksDict = [Artist: [Track]]()
     private var orderedTracks = [Track]() // ordered, even if order is "random order"
-    weak var delegate: PlaylistDelegate?
     
     var artists: [Artist] {
         return Array(tracksDict.keys)
@@ -113,9 +109,8 @@ class Playlist: NSObject {
         }
     }
     
-    static func withRandomDetails(delegate: PlaylistDelegate?, artistMin: Int, artistMax: Int, trackMin: Int, trackMax: Int) -> Playlist {
+    static func withRandomDetails(artistMin: Int, artistMax: Int, trackMin: Int, trackMax: Int) -> Playlist {
         let out = Playlist()
-        out.delegate = delegate
         (0..<randomInt(upperBound: artistMax, min: artistMin)).forEach { (k) in
             let artist = Artist.random(name: RandomGenerator.random(type: .artistName), trackCount: randomInt(upperBound: trackMax, min: trackMin))
             out.tracksDict[artist] = artist.tracks
