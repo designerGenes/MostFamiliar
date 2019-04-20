@@ -97,8 +97,8 @@ class FamiliarExampleCollectionContainingTableCell: UITableViewCell, UICollectio
     func addControls() {
         generateData(generatedRowCount: 8)
         let flowLayout = UICollectionViewFlowLayout.init()
-        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        
+        flowLayout.estimatedItemSize = CGSize(width: 2, height: 2)
+        flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
         flowLayout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.showsHorizontalScrollIndicator = false
