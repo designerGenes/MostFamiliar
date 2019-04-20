@@ -12,6 +12,6 @@ import UIKit
 extension UIViewController {
     func showSimpleAlert(msg: String, title: String? = nil, doneBlock: (() -> Void)?) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        
+        present(alert, animated: true, completion: nil)
     }
 }
