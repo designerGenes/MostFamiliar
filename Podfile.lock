@@ -3,24 +3,28 @@ PODS:
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
+  - SwiftRandom (1.0.0)
   - SwiftSpinner (1.6.2)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-beta.3)
   - ChameleonFramework (~> 2.1)
+  - SwiftRandom
   - SwiftSpinner
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - ChameleonFramework
+    - SwiftRandom
     - SwiftSpinner
 
 SPEC CHECKSUMS:
   Alamofire: 6458d95477bc40adf10129f22c67cfb014162dc8
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  SwiftRandom: 437275c63500ddf5a565cbd56996fb23f12cfc3d
   SwiftSpinner: 3a4c6dea425e5a31b908a8b1dd5dcd1ad4d96340
 
-PODFILE CHECKSUM: 3f4d08fd2a87dddcdec71e0850941d80d2eaf0d0
+PODFILE CHECKSUM: db1ad4a473da2e2f799193b1258d54a2e4bd67f4
 
 COCOAPODS: 1.5.2
