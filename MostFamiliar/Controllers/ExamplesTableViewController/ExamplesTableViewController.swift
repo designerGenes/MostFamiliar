@@ -13,12 +13,16 @@ class ExamplesTableViewController: UIViewController, UITableViewDelegate, SideCa
     private let dataSource = ExamplesDataSource()
     weak public var delegate: HostsSideCabinet?
     
+    // UsesDisplayColorMode methods
+    
+    
     // MARK: - outlets
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = dataSource
         tableView.register(FamiliarExampleCell.self, forCellReuseIdentifier: "FamiliarExampleCell")
@@ -26,16 +30,30 @@ class ExamplesTableViewController: UIViewController, UITableViewDelegate, SideCa
         tableView.showsVerticalScrollIndicator = false
         tableView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "hamburgerMenu"), style: .plain, target: self, action: #selector(clickedOpenHamburgerMenu(sender:)))
         navigationItem.rightBarButtonItem?.tintColor = .darkPurple()
+        
+        let darkModeSwitch = UISwitch()
+        darkModeSwitch.onTintColor = .darkPurple()
+        darkModeSwitch.addTarget(self, action: #selector(toggledDarkModeSwitch(sender:)), for: UISwitch.Event.valueChanged)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: darkModeSwitch)
     
+        DisplayColorModeManager.registerForChangeNotification(registrant: self)
+        
+    }
+    
+    deinit {
+        DisplayColorModeManager.deRegisterForChangeNotification(registrant: self)
     }
 
     @objc private func clickedOpenHamburgerMenu(sender: UIBarButtonItem) {
         delegate?.setCabinetOpen(shouldOpen: true)
     }
 
+    @objc private func toggledDarkModeSwitch(sender: UISwitch) {
+        let nightModeSwitch = navigationItem.leftBarButtonItem?.customView as! UISwitch
+        DisplayColorModeManager.setGlobalDisplayColorMode(mode: nightModeSwitch.isOn ? .night : .regular)
+    }
     
     // MARK: - UITableViewDelegate methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -31,7 +31,6 @@ class FamiliarExampleView: UIView {
     }
     
     internal func addControls() {
-//        setContentCompressionResistancePriority(.required, for: .horizontal)
         setContentCompressionResistancePriority(.required, for: .vertical)
         setContentHuggingPriority(.defaultHigh, for: .horizontal)
         for view in [coloredRim, indexLabel, titleLabel, subtitleLabel, stingerLabel, divider] {

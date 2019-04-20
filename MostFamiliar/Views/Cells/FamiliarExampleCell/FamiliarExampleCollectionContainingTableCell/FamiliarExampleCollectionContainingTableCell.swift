@@ -89,16 +89,20 @@ class FamiliarExampleCollectionContainingTableCell: UITableViewCell, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: section == data.count - 1 ? (UIScreen.main.bounds.width - (UIScreen.main.bounds.width * FamiliarExampleCell.screenWidthMultiplier)) / 2 : 0, height: 10)
+//        return CGSize(width: (UIScreen.main.bounds.width - (UIScreen.main.bounds.width * FamiliarExampleCell.screenWidthMultiplier)) / 2, height: 10)
+        let distToLeftEdge: CGFloat = (UIScreen.main.bounds.width - (UIScreen.main.bounds.width * FamiliarExampleCell.screenWidthMultiplier)) / 2
+        return CGSize(width: [data.count - 1].contains(section) ? distToLeftEdge : 0, height: 10)
     }
     
     func addControls() {
         generateData(generatedRowCount: 8)
         let flowLayout = UICollectionViewFlowLayout.init()
         flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        
         flowLayout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.showsHorizontalScrollIndicator = false
+
         coverSelfEntirely(with: collectionView, obeyMargins: false, allowVerticalExtensionDown: true)
         collectionView.heightAnchor.constraint(equalToConstant: FamiliarExampleCell.baseHeight).isActive = true
         collectionView.register(FamiliarExampleCollectionViewCell.self, forCellWithReuseIdentifier: "FamiliarExampleCollectionViewCell")
