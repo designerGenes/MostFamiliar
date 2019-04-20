@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftRandom
 
 class Album: Playlist {
     static var albums = [Album]()
@@ -24,11 +25,8 @@ class Album: Playlist {
     }
     
     static func withRandomSongs(albumName: String, artistId: String, trackMin: Int, trackMax: Int) -> Album {
-        
-        let trackIds = (trackMin..<trackMin + randomInt(upperBound: trackMax - trackMin)).map({ _ -> Track in
-            let randomTrackName = "track name"
-            return Track.withRandomDetails(name: randomTrackName, artistId: artistId)
-        }).map({$0.trackId})
+        let trackIds = (0..<randomInt(upperBound: trackMax, min: trackMin)).map({ _ in Track.withRandomDetails(name: RandomGenerator.random(type: .trackName), artistId: artistId).trackId
+        })
 
         return Album(name: albumName, artistId: artistId, trackIds: trackIds)
     }

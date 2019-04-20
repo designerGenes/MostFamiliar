@@ -37,6 +37,7 @@
 		FE236EC3226B663000E0CB38 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE236EC2226B663000E0CB38 /* Artist.swift */; };
 		FE236EC5226B665C00E0CB38 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE236EC4226B665C00E0CB38 /* Playlist.swift */; };
 		FE236EC7226B667300E0CB38 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE236EC6226B667300E0CB38 /* Album.swift */; };
+		FE236EC9226B749900E0CB38 /* RandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE236EC8226B749900E0CB38 /* RandomGenerator.swift */; };
 		FE44BA5D22614563001DE749 /* UIViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44BA5C22614563001DE749 /* UIViewController+Convenience.swift */; };
 		FE44BA5F22614692001DE749 /* BaseAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44BA5E22614692001DE749 /* BaseAlertController.swift */; };
 		FE44BA63226147F4001DE749 /* DisplayColorModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44BA62226147F4001DE749 /* DisplayColorModeManager.swift */; };
@@ -82,6 +83,7 @@
 		FE236EC2226B663000E0CB38 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		FE236EC4226B665C00E0CB38 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		FE236EC6226B667300E0CB38 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		FE236EC8226B749900E0CB38 /* RandomGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGenerator.swift; sourceTree = "<group>"; };
 		FE44BA5C22614563001DE749 /* UIViewController+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Convenience.swift"; sourceTree = "<group>"; };
 		FE44BA5E22614692001DE749 /* BaseAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlertController.swift; sourceTree = "<group>"; };
 		FE44BA62226147F4001DE749 /* DisplayColorModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayColorModeManager.swift; sourceTree = "<group>"; };
@@ -160,7 +162,6 @@
 				FE16340A225C109F001B87E7 /* Examples */,
 				FE16341B225C1875001B87E7 /* ExamplesTableViewController */,
 				FE16342C225D14D9001B87E7 /* SpineViewController */,
-				FE236EBE226B62AF00E0CB38 /* __ShufflifyViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,6 +188,7 @@
 		FE16340A225C109F001B87E7 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				FE236EBE226B62AF00E0CB38 /* __ShufflifyViewController */,
 				FE16342D225D1B77001B87E7 /* SideCabinetController */,
 				FE16343A225D5E4E001B87E7 /* NestedNavigationViewController */,
 				FE163439225D5E48001B87E7 /* EndlessTableViewController */,
@@ -199,7 +201,7 @@
 		FE163418225C17E3001B87E7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FE236EBF226B65F600E0CB38 /* Shufflify */,
+				FE236EBF226B65F600E0CB38 /* __Shufflify */,
 				FE163419225C17F2001B87E7 /* ExampleData.swift */,
 			);
 			path = Models;
@@ -323,15 +325,16 @@
 			path = __ShufflifyViewController;
 			sourceTree = "<group>";
 		};
-		FE236EBF226B65F600E0CB38 /* Shufflify */ = {
+		FE236EBF226B65F600E0CB38 /* __Shufflify */ = {
 			isa = PBXGroup;
 			children = (
 				FE236EC0226B660500E0CB38 /* Track.swift */,
 				FE236EC2226B663000E0CB38 /* Artist.swift */,
 				FE236EC4226B665C00E0CB38 /* Playlist.swift */,
 				FE236EC6226B667300E0CB38 /* Album.swift */,
+				FE236EC8226B749900E0CB38 /* RandomGenerator.swift */,
 			);
-			path = Shufflify;
+			path = __Shufflify;
 			sourceTree = "<group>";
 		};
 		FE44BA60226146A8001DE749 /* BaseAlertController */ = {
@@ -485,14 +488,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MostFamiliar/Pods-MostFamiliar-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/RandomUserSwift/RandomUserSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftRandom/SwiftRandom.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RandomUserSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftRandom.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +512,7 @@
 			files = (
 				FE163425225C2367001B87E7 /* UIFont+Design.swift in Sources */,
 				FE163410225C116C001B87E7 /* EndlessTableViewController.swift in Sources */,
+				FE236EC9226B749900E0CB38 /* RandomGenerator.swift in Sources */,
 				FE236EC7226B667300E0CB38 /* Album.swift in Sources */,
 				FEDF3336225FBB85006505CC /* FamiliarExampleCollectionContainingTableCell.swift in Sources */,
 				FE236EC5226B665C00E0CB38 /* Playlist.swift in Sources */,

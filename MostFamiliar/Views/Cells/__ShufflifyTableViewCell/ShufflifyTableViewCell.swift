@@ -15,7 +15,7 @@ class ShufflifyTableViewCell: UITableViewCell {
     
     private var track: Track?
     
-    private func loadTrackData(track: Track) {
+    func loadTrackData(track: Track) {
         self.track = track
     }
     

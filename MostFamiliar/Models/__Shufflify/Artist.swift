@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import RandomUserSwift
+import SwiftRandom
 
 class ArtistTrackTable: NSObject {
     static var artistTrackDict = [String: [Track]]()  // artistId: [tracks]

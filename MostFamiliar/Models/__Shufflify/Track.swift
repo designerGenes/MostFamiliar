@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import RandomUserSwift
+import SwiftRandom
 
 class Track: NSObject {
     static var tracks = [String: Track]()  // trackId: Track
@@ -31,7 +31,7 @@ class Track: NSObject {
     }
     
     static func withRandomDetails(name: String, artistId: String) -> Track {
-        return Track(name: name, duration: Double(randomInt(upperBound: 300)), artistId: artistId, explicitLyrics: true)
+        return Track(name: name, duration: Double(randomInt(upperBound: 400)), artistId: artistId, explicitLyrics: true)
     }
     
     init(name: String, duration: Double, artistId: String, id: String? = nil, explicitLyrics: Bool = false) {

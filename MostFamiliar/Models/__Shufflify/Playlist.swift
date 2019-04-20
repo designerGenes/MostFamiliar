@@ -11,7 +11,7 @@ import Foundation
 class Playlist: NSObject {
     static var playlists = [Playlist]()
     private var tracksDict = [Artist: [Track]]()
-    private var orderedTracks = [Track]() // ordered, even if order is "random order"
+    var orderedTracks = [Track]() // ordered, even if order is "random order"
     
     var artists: [Artist] {
         return Array(tracksDict.keys)
@@ -110,11 +110,8 @@ class Playlist: NSObject {
     
     static func withRandomDetails(artistMin: Int, artistMax: Int, trackMin: Int, trackMax: Int) -> Playlist {
         let out = Playlist()
-        var lastArtistName: String?
-        (0..<randomInt(upperBound: artistMax)).forEach { (k) in
-            let randomArtistName = "random artist name"
-            let artist = Artist.random(name: randomArtistName, trackCount: randomInt(upperBound: trackMax, min: 1))
-            lastArtistName = artist.artistName
+        (0..<randomInt(upperBound: artistMax, min: artistMin)).forEach { (k) in
+            let artist = Artist.random(name: RandomGenerator.random(type: .artistName), trackCount: randomInt(upperBound: trackMax, min: trackMin))
             out.tracksDict[artist] = artist.tracks
         }
         return out

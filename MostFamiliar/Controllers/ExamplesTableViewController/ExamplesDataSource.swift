@@ -31,6 +31,11 @@ class ExamplesDataSource: NSObject, UITableViewDataSource {
             (vc as? ExamplesTableViewController)?.delegate?.setCabinetOpen(shouldOpen: true)
         })
         
+        let shufflifyExample = ExampleData(title: "Shuffle-ify", subtitle: "Organize a playlist so tracks by the same artist don't touch", stinger: "Hey listen", hexColorString: "#2f195f", launchCallback: { vc in
+            let shufflifyVC = ShufflifyViewController()
+            vc.present(shufflifyVC, animated: true, completion: nil)
+        })
+        
         let collectionViewExample = CollectionContainingExampleData(title: "Tableview within cell", subtitle: "Cells that go sideways and sideways and sideways.", stinger: "Swipe swipe", hexColorString: "#db5461", launchCallback: { vc in
             // none
         })
@@ -52,7 +57,7 @@ class ExamplesDataSource: NSObject, UITableViewDataSource {
             
         })
         
-        examples = [sideCabinetExample, collectionViewExample, nightModeExample, localStorageExample, spotifyExample, googlePlacesExample, localStorageExample, endlessTableViewExample]
+        examples = [sideCabinetExample, shufflifyExample, collectionViewExample, nightModeExample, localStorageExample, spotifyExample, googlePlacesExample, localStorageExample, endlessTableViewExample]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

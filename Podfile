@@ -7,6 +7,6 @@ target 'MostFamiliar' do
   pod 'Alamofire', '~> 5.0.0-beta.3'
   pod 'ChameleonFramework', '~> 2.1'
   pod 'SwiftSpinner'
-  pod 'RandomUserSwift'
+  pod 'SwiftRandom'
 
 end
