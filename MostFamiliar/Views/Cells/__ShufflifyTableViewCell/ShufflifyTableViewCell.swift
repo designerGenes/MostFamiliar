@@ -12,11 +12,19 @@ class ShufflifyTableViewCell: UITableViewCell {
     @IBOutlet weak var lblSongTitle: UILabel!
     @IBOutlet weak var lblSongArtist: UILabel!
     @IBOutlet weak var lblSongAlbumTitle: UILabel!
+    @IBOutlet weak var lblExplicitLyrics: UILabel!
+    @IBOutlet weak var lblExplicitLyricsWidthConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var lblSongArtistLeadingConstraint: NSLayoutConstraint!
     private var track: Track?
     
     func loadTrackData(track: Track) {
         self.track = track
+        lblSongTitle.text = track.trackName
+        lblSongArtist.text = track.artist.artistName
+        lblSongAlbumTitle.text = track.album?.albumName
+        lblExplicitLyricsWidthConstraint.constant = track.isExplicit ? 60 : 0
+        lblSongArtistLeadingConstraint.constant = track.isExplicit ? 8 : 0
     }
     
     override func prepareForReuse() {
@@ -24,10 +32,12 @@ class ShufflifyTableViewCell: UITableViewCell {
         [lblSongTitle, lblSongArtist, lblSongAlbumTitle].forEach { (lbl) in
             lbl?.text = nil
         }
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        backgroundColor = .clear
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+        backgroundColor = .clear
+    }    
 }

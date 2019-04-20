@@ -13,6 +13,11 @@ class ArtistTrackTable: NSObject {
     static var artistTrackDict = [String: [Track]]()  // artistId: [tracks]
 }
 
+class TrackAlbumTable: NSObject {
+    // assume for example that track only appears on 1 album
+    static var trackAlbumDict = [String: String]() // trackId: albumId
+}
+
 class Artist: NSObject {
     static var artists = [String: Artist]() // artistId: Artist
     var artistId: String
@@ -35,7 +40,7 @@ class Artist: NSObject {
         var albums = [Album]()
         var remainingTrackCount = trackCount
         while remainingTrackCount > 0 {
-            albums.append(Album.withRandomSongs(albumName: name, artistId: out.artistId, trackMin: remainingTrackCount, trackMax: remainingTrackCount))
+            albums.append(Album.withRandomSongs(albumName: RandomGenerator.random(type: .albumName), artistId: out.artistId, trackMin: 1, trackMax: remainingTrackCount))
             remainingTrackCount -= albums.last!.trackIds.count
         }
         

@@ -12,7 +12,7 @@ import UIKit
 
 func randomInt(upperBound: Int, min: Int = 0) -> Int {
     guard min < upperBound else {
-        return -1
+        return upperBound
     }
     let availableInts = Array(min..<upperBound)
     return availableInts[Int(arc4random_uniform(UInt32(availableInts.count)))]

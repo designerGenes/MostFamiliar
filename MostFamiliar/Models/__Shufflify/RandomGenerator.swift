@@ -42,7 +42,7 @@ class RandomGenerator: NSObject {
         case .artistName:
             switch randomInt(upperBound: 3) {
             case 0: // city & colour
-                out = "\(Randoms.randomFakeCity().split(separator: " ").first!) \(randomInt(upperBound: 1) > 0 ? "and" : "&") \(Randoms.randomColor().description)"
+                out = "\(Randoms.randomFakeCity().split(separator: " ").first!) \(randomInt(upperBound: 1) > 0 ? "and" : "&") \(colorNames.randomElement()!)"
             case 1: // human name
                 out = Randoms.randomFakeName()
             default: // plural of possessive
@@ -50,7 +50,7 @@ class RandomGenerator: NSObject {
             }
 
         case .trackName, .playlistName, .albumName:
-            switch randomInt(upperBound: 2) {
+            switch randomInt(upperBound: 3) {
             case 0: // full
                 var parts = [articles, concreteNouns]
                 if Randoms.randomBool() {

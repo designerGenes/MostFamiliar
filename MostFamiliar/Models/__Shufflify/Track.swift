@@ -15,6 +15,7 @@ class Track: NSObject {
     var duration: Double // in seconds
     var trackId: String
     var artistId: String
+    var isExplicit: Bool = false
     
     var prettyDuration: String {
         let minutes = Int((duration - duration.truncatingRemainder(dividingBy: 60)) / 60)
@@ -26,19 +27,24 @@ class Track: NSObject {
         return Artist.artists[artistId]!
     }
     
+    var album: Album? {
+        return Album.albums[TrackAlbumTable.trackAlbumDict[trackId] ?? ""]
+    }
+    
     override var description: String {
         return "\(trackName) [\(prettyDuration)]"
     }
     
     static func withRandomDetails(name: String, artistId: String) -> Track {
-        return Track(name: name, duration: Double(randomInt(upperBound: 400)), artistId: artistId, explicitLyrics: true)
+        return Track(name: name, duration: Double(randomInt(upperBound: 400)), artistId: artistId, hasExplicitLyrics: randomInt(upperBound: 5) > 3)
     }
     
-    init(name: String, duration: Double, artistId: String, id: String? = nil, explicitLyrics: Bool = false) {
+    init(name: String, duration: Double, artistId: String, id: String? = nil, hasExplicitLyrics: Bool = false) {
         self.trackName = name
         self.artistId = artistId
         self.trackId = id ?? UUID.init().uuidString
         self.duration = duration
+        self.isExplicit = hasExplicitLyrics
         super.init()
         Track.tracks[self.trackId] = self
         var holder = ArtistTrackTable.artistTrackDict[artistId] ?? [Track]()
