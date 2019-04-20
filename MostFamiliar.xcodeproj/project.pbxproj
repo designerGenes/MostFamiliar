@@ -128,7 +128,7 @@
 		FE1633F2225C0E73001B87E7 /* MostFamiliar */ = {
 			isa = PBXGroup;
 			children = (
-				FE44BA61226147E0001DE749 /* __Protocols */,
+				FE44BA61226147E0001DE749 /* Protocols */,
 				FE163423225C2345001B87E7 /* Extensions */,
 				FE163418225C17E3001B87E7 /* Models */,
 				FE163407225C1073001B87E7 /* Views */,
@@ -144,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				FE16340A225C109F001B87E7 /* Examples */,
-				FE16341B225C1875001B87E7 /* __ExamplesTableViewController */,
+				FE16341B225C1875001B87E7 /* ExamplesTableViewController */,
 				FE16342C225D14D9001B87E7 /* SpineViewController */,
 			);
 			path = Controllers;
@@ -189,7 +189,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		FE16341B225C1875001B87E7 /* __ExamplesTableViewController */ = {
+		FE16341B225C1875001B87E7 /* ExamplesTableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				FE163416225C11D8001B87E7 /* ExamplesTableViewController.xib */,
@@ -197,7 +197,7 @@
 				FE44BA6422614BDE001DE749 /* ExamplesTableViewController+UsesDisplayColorMode.swift */,
 				FE16341C225C1884001B87E7 /* ExamplesDataSource.swift */,
 			);
-			path = __ExamplesTableViewController;
+			path = ExamplesTableViewController;
 			sourceTree = "<group>";
 		};
 		FE16341E225C229F001B87E7 /* Fonts */ = {
@@ -247,7 +247,7 @@
 			path = SideCabinetOptionCell;
 			sourceTree = "<group>";
 		};
-		FE163435225D3DA4001B87E7 /* __FamiliarExampleCell */ = {
+		FE163435225D3DA4001B87E7 /* FamiliarExampleCell */ = {
 			isa = PBXGroup;
 			children = (
 				FE163408225C108E001B87E7 /* FamiliarExampleCell.swift */,
@@ -255,7 +255,7 @@
 				FEDF333B225FC340006505CC /* FamiliarExampleCollectionViewCell */,
 				FEDF333C225FC36D006505CC /* FamiliarExampleView.swift */,
 			);
-			path = __FamiliarExampleCell;
+			path = FamiliarExampleCell;
 			sourceTree = "<group>";
 		};
 		FE163438225D5E3B001B87E7 /* GooglePlacesViewController */ = {
@@ -298,26 +298,26 @@
 			path = BaseAlertController;
 			sourceTree = "<group>";
 		};
-		FE44BA61226147E0001DE749 /* __Protocols */ = {
+		FE44BA61226147E0001DE749 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				FE44BA6622614CEF001DE749 /* __DisplayColorModeManager */,
+				FE44BA6622614CEF001DE749 /* DisplayColorModeManager */,
 			);
-			path = __Protocols;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
-		FE44BA6622614CEF001DE749 /* __DisplayColorModeManager */ = {
+		FE44BA6622614CEF001DE749 /* DisplayColorModeManager */ = {
 			isa = PBXGroup;
 			children = (
 				FE44BA62226147F4001DE749 /* DisplayColorModeManager.swift */,
 			);
-			path = __DisplayColorModeManager;
+			path = DisplayColorModeManager;
 			sourceTree = "<group>";
 		};
 		FEDF332E225FB9C7006505CC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				FE163435225D3DA4001B87E7 /* __FamiliarExampleCell */,
+				FE163435225D3DA4001B87E7 /* FamiliarExampleCell */,
 				FE163434225D3D96001B87E7 /* SideCabinetOptionCell */,
 			);
 			path = Cells;
